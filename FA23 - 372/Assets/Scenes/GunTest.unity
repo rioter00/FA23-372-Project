@@ -160,6 +160,8 @@ MonoBehaviour:
   bulletsText: {fileID: 878647244}
   powderText: {fileID: 1959229221}
   tampsText: {fileID: 508051947}
+  gunStateText: {fileID: 574316936}
+  reloadingStateText: {fileID: 992560163}
 --- !u!4 &199225220
 Transform:
   m_ObjectHideFlags: 0
@@ -415,7 +417,7 @@ GameObject:
   - component: {fileID: 574316937}
   - component: {fileID: 574316936}
   m_Layer: 5
-  m_Name: TampsText (2)
+  m_Name: GunStateText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,7 +462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tamps: 0'
+  m_text: GunState
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -796,7 +798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tamps: 0'
+  m_text: ReloadingState
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
