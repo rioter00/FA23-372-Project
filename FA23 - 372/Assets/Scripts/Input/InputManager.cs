@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class InputManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InputManager : MonoBehaviour
     private InputAction movement;
     private InputAction mouse;
     private InputAction shoot;
+    private InputAction reload;
 
 
     [SerializeField] private Vector2 movementValue;
@@ -29,6 +31,9 @@ public class InputManager : MonoBehaviour
         shoot = playerControls.gameplay.shoot;
         shoot.Enable();
         shoot.performed += Shoot;
+        reload = playerControls.gameplay.reload;
+        reload.Enable();
+        reload.performed += Reload; //this is not right
     }
     private void OnDisable()
     {
@@ -47,10 +52,31 @@ public class InputManager : MonoBehaviour
         transform.position += new Vector3(movementValue.x, 0, movementValue.y) * Time.deltaTime * 10;
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + (new Vector3(-mouseValue.y, mouseValue.x, 0) * Time.deltaTime * 10f));
         ////////////////////////
+        
+        //r = reload
+        //f = powder
+        //e = add bullet
+        //c = tamp
+        
     }
 
     private void Shoot(InputAction.CallbackContext context)
     {
         Debug.Log("left click");
+    }    
+    private void Reload(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            //reload button key down
+            Debug.Log("reload key down");
+        }
+        if(context.canceled)
+        {
+            //reload button key up
+            Debug.Log("reload key up");
+        }
+
+        Debug.Log(context.duration);
     }    
 }
