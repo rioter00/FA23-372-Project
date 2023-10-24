@@ -28,7 +28,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""id"": ""f6b5237d-5e48-49aa-8b2d-e4db1bda50c9"",
             ""actions"": [
                 {
-                    ""name"": ""movement"",
+                    ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""d1da0337-2b91-454d-b6ca-d0117bd48f71"",
                     ""expectedControlType"": ""Vector2"",
@@ -37,7 +37,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""mouse"",
+                    ""name"": ""Mouse"",
                     ""type"": ""Value"",
                     ""id"": ""0cd1156d-6863-4ab9-8e35-86dc16d99357"",
                     ""expectedControlType"": ""Delta"",
@@ -46,7 +46,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""shoot"",
+                    ""name"": ""Gun_Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""5ad1aaa5-3238-497f-afb4-a6ac025b6493"",
                     ""expectedControlType"": ""Button"",
@@ -55,9 +55,36 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""reload"",
+                    ""name"": ""Gun_Reload"",
                     ""type"": ""Button"",
                     ""id"": ""f046b37f-47f3-4709-8b8e-933cba161ed1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gun_Powder"",
+                    ""type"": ""Button"",
+                    ""id"": ""e03df666-63b2-47b2-8937-131e488d3035"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gun_Bullet"",
+                    ""type"": ""Button"",
+                    ""id"": ""306d264f-be23-40bc-a0f2-b2799c3d3376"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gun_Tamp"",
+                    ""type"": ""Button"",
+                    ""id"": ""81352eae-e95e-4233-bc64-fa5b45f974c9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -72,7 +99,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -83,7 +110,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -94,7 +121,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -105,7 +132,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -116,7 +143,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movement"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -127,7 +154,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""mouse"",
+                    ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -138,7 +165,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""shoot"",
+                    ""action"": ""Gun_Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -149,7 +176,40 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""reload"",
+                    ""action"": ""Gun_Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dec9b14c-42bf-424c-8053-0f516b49e0e2"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gun_Tamp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90fff6a2-22f3-4bd4-bd8e-0446a3fbc186"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gun_Powder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c3b69d1-eb12-4dc5-95a1-1809903051de"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gun_Bullet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -160,10 +220,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
 }");
         // gameplay
         m_gameplay = asset.FindActionMap("gameplay", throwIfNotFound: true);
-        m_gameplay_movement = m_gameplay.FindAction("movement", throwIfNotFound: true);
-        m_gameplay_mouse = m_gameplay.FindAction("mouse", throwIfNotFound: true);
-        m_gameplay_shoot = m_gameplay.FindAction("shoot", throwIfNotFound: true);
-        m_gameplay_reload = m_gameplay.FindAction("reload", throwIfNotFound: true);
+        m_gameplay_Movement = m_gameplay.FindAction("Movement", throwIfNotFound: true);
+        m_gameplay_Mouse = m_gameplay.FindAction("Mouse", throwIfNotFound: true);
+        m_gameplay_Gun_Shoot = m_gameplay.FindAction("Gun_Shoot", throwIfNotFound: true);
+        m_gameplay_Gun_Reload = m_gameplay.FindAction("Gun_Reload", throwIfNotFound: true);
+        m_gameplay_Gun_Powder = m_gameplay.FindAction("Gun_Powder", throwIfNotFound: true);
+        m_gameplay_Gun_Bullet = m_gameplay.FindAction("Gun_Bullet", throwIfNotFound: true);
+        m_gameplay_Gun_Tamp = m_gameplay.FindAction("Gun_Tamp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -225,18 +288,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // gameplay
     private readonly InputActionMap m_gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
-    private readonly InputAction m_gameplay_movement;
-    private readonly InputAction m_gameplay_mouse;
-    private readonly InputAction m_gameplay_shoot;
-    private readonly InputAction m_gameplay_reload;
+    private readonly InputAction m_gameplay_Movement;
+    private readonly InputAction m_gameplay_Mouse;
+    private readonly InputAction m_gameplay_Gun_Shoot;
+    private readonly InputAction m_gameplay_Gun_Reload;
+    private readonly InputAction m_gameplay_Gun_Powder;
+    private readonly InputAction m_gameplay_Gun_Bullet;
+    private readonly InputAction m_gameplay_Gun_Tamp;
     public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
         public GameplayActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @movement => m_Wrapper.m_gameplay_movement;
-        public InputAction @mouse => m_Wrapper.m_gameplay_mouse;
-        public InputAction @shoot => m_Wrapper.m_gameplay_shoot;
-        public InputAction @reload => m_Wrapper.m_gameplay_reload;
+        public InputAction @Movement => m_Wrapper.m_gameplay_Movement;
+        public InputAction @Mouse => m_Wrapper.m_gameplay_Mouse;
+        public InputAction @Gun_Shoot => m_Wrapper.m_gameplay_Gun_Shoot;
+        public InputAction @Gun_Reload => m_Wrapper.m_gameplay_Gun_Reload;
+        public InputAction @Gun_Powder => m_Wrapper.m_gameplay_Gun_Powder;
+        public InputAction @Gun_Bullet => m_Wrapper.m_gameplay_Gun_Bullet;
+        public InputAction @Gun_Tamp => m_Wrapper.m_gameplay_Gun_Tamp;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -246,34 +315,52 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
-            @movement.started += instance.OnMovement;
-            @movement.performed += instance.OnMovement;
-            @movement.canceled += instance.OnMovement;
-            @mouse.started += instance.OnMouse;
-            @mouse.performed += instance.OnMouse;
-            @mouse.canceled += instance.OnMouse;
-            @shoot.started += instance.OnShoot;
-            @shoot.performed += instance.OnShoot;
-            @shoot.canceled += instance.OnShoot;
-            @reload.started += instance.OnReload;
-            @reload.performed += instance.OnReload;
-            @reload.canceled += instance.OnReload;
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
+            @Mouse.started += instance.OnMouse;
+            @Mouse.performed += instance.OnMouse;
+            @Mouse.canceled += instance.OnMouse;
+            @Gun_Shoot.started += instance.OnGun_Shoot;
+            @Gun_Shoot.performed += instance.OnGun_Shoot;
+            @Gun_Shoot.canceled += instance.OnGun_Shoot;
+            @Gun_Reload.started += instance.OnGun_Reload;
+            @Gun_Reload.performed += instance.OnGun_Reload;
+            @Gun_Reload.canceled += instance.OnGun_Reload;
+            @Gun_Powder.started += instance.OnGun_Powder;
+            @Gun_Powder.performed += instance.OnGun_Powder;
+            @Gun_Powder.canceled += instance.OnGun_Powder;
+            @Gun_Bullet.started += instance.OnGun_Bullet;
+            @Gun_Bullet.performed += instance.OnGun_Bullet;
+            @Gun_Bullet.canceled += instance.OnGun_Bullet;
+            @Gun_Tamp.started += instance.OnGun_Tamp;
+            @Gun_Tamp.performed += instance.OnGun_Tamp;
+            @Gun_Tamp.canceled += instance.OnGun_Tamp;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
         {
-            @movement.started -= instance.OnMovement;
-            @movement.performed -= instance.OnMovement;
-            @movement.canceled -= instance.OnMovement;
-            @mouse.started -= instance.OnMouse;
-            @mouse.performed -= instance.OnMouse;
-            @mouse.canceled -= instance.OnMouse;
-            @shoot.started -= instance.OnShoot;
-            @shoot.performed -= instance.OnShoot;
-            @shoot.canceled -= instance.OnShoot;
-            @reload.started -= instance.OnReload;
-            @reload.performed -= instance.OnReload;
-            @reload.canceled -= instance.OnReload;
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
+            @Mouse.started -= instance.OnMouse;
+            @Mouse.performed -= instance.OnMouse;
+            @Mouse.canceled -= instance.OnMouse;
+            @Gun_Shoot.started -= instance.OnGun_Shoot;
+            @Gun_Shoot.performed -= instance.OnGun_Shoot;
+            @Gun_Shoot.canceled -= instance.OnGun_Shoot;
+            @Gun_Reload.started -= instance.OnGun_Reload;
+            @Gun_Reload.performed -= instance.OnGun_Reload;
+            @Gun_Reload.canceled -= instance.OnGun_Reload;
+            @Gun_Powder.started -= instance.OnGun_Powder;
+            @Gun_Powder.performed -= instance.OnGun_Powder;
+            @Gun_Powder.canceled -= instance.OnGun_Powder;
+            @Gun_Bullet.started -= instance.OnGun_Bullet;
+            @Gun_Bullet.performed -= instance.OnGun_Bullet;
+            @Gun_Bullet.canceled -= instance.OnGun_Bullet;
+            @Gun_Tamp.started -= instance.OnGun_Tamp;
+            @Gun_Tamp.performed -= instance.OnGun_Tamp;
+            @Gun_Tamp.canceled -= instance.OnGun_Tamp;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -295,7 +382,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
-        void OnReload(InputAction.CallbackContext context);
+        void OnGun_Shoot(InputAction.CallbackContext context);
+        void OnGun_Reload(InputAction.CallbackContext context);
+        void OnGun_Powder(InputAction.CallbackContext context);
+        void OnGun_Bullet(InputAction.CallbackContext context);
+        void OnGun_Tamp(InputAction.CallbackContext context);
     }
 }

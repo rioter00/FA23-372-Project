@@ -6,7 +6,7 @@
             "id": "f6b5237d-5e48-49aa-8b2d-e4db1bda50c9",
             "actions": [
                 {
-                    "name": "movement",
+                    "name": "Movement",
                     "type": "Value",
                     "id": "d1da0337-2b91-454d-b6ca-d0117bd48f71",
                     "expectedControlType": "Vector2",
@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "mouse",
+                    "name": "Mouse",
                     "type": "Value",
                     "id": "0cd1156d-6863-4ab9-8e35-86dc16d99357",
                     "expectedControlType": "Delta",
@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "shoot",
+                    "name": "Gun_Shoot",
                     "type": "Button",
                     "id": "5ad1aaa5-3238-497f-afb4-a6ac025b6493",
                     "expectedControlType": "Button",
@@ -33,9 +33,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "reload",
+                    "name": "Gun_Reload",
                     "type": "Button",
                     "id": "f046b37f-47f3-4709-8b8e-933cba161ed1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Gun_Powder",
+                    "type": "Button",
+                    "id": "e03df666-63b2-47b2-8937-131e488d3035",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Gun_Bullet",
+                    "type": "Button",
+                    "id": "306d264f-be23-40bc-a0f2-b2799c3d3376",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Gun_Tamp",
+                    "type": "Button",
+                    "id": "81352eae-e95e-4233-bc64-fa5b45f974c9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -50,7 +77,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movement",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -61,7 +88,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -72,7 +99,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -83,7 +110,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -94,7 +121,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -105,7 +132,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "mouse",
+                    "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -116,7 +143,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "shoot",
+                    "action": "Gun_Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -127,7 +154,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "reload",
+                    "action": "Gun_Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dec9b14c-42bf-424c-8053-0f516b49e0e2",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gun_Tamp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90fff6a2-22f3-4bd4-bd8e-0446a3fbc186",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gun_Powder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c3b69d1-eb12-4dc5-95a1-1809903051de",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gun_Bullet",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

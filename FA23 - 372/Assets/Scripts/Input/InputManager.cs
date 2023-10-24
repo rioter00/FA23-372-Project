@@ -4,79 +4,81 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
+public enum InputButtonState { ButtonNotHeld, ButtonDown, ButtonHeld, ButtonUp };
+
 public class InputManager : MonoBehaviour
 {
-    public PlayerInputActions playerControls;
-    private InputAction movement;
-    private InputAction mouse;
-    private InputAction shoot;
-    private InputAction reload;
+    [SerializeField] private bool logInputs;
+    private PlayerInputActions playerControls;
 
-
-    [SerializeField] private Vector2 movementValue;
-    [SerializeField] private Vector2 mouseValue;
+    [SerializeField] public Vector2 Movement;
+    [SerializeField] public Vector2 Mouse;
+    [SerializeField] public InputButtonState Gun_Shoot;
+    [SerializeField] public InputButtonState Gun_Reload;
+    [SerializeField] public InputButtonState Gun_Powder;
+    [SerializeField] public InputButtonState Gun_Bullet;
+    [SerializeField] public InputButtonState Gun_Tamp;
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;   
+        //leaving this out for not as im not sure it should be handled here or in the proper script for it
+        //ideally this should be enabled/disabled depending on the currently active input map, which i supposed would be handled here.
+
         playerControls = new PlayerInputActions();
     }
 
     private void OnEnable()
     {
-        movement = playerControls.gameplay.movement;
-        movement.Enable();
-        mouse = playerControls.gameplay.mouse;
-        mouse.Enable();
-        shoot = playerControls.gameplay.shoot;
-        shoot.Enable();
-        shoot.performed += Shoot;
-        reload = playerControls.gameplay.reload;
-        reload.Enable();
-        reload.performed += Reload; //this is not right
+        playerControls.gameplay.Enable();
     }
     private void OnDisable()
     {
-        movement.Disable();
-        mouse.Disable();
-        shoot.Disable();
+        playerControls.gameplay.Disable();
     }
 
     private void Update()
     {
-        movementValue = movement.ReadValue<Vector2>();
-        mouseValue = mouse.ReadValue<Vector2>();
+        Movement = playerControls.gameplay.Movement.ReadValue<Vector2>();
+        Mouse = playerControls.gameplay.Mouse.ReadValue<Vector2>();
 
+        Gun_Shoot = UpdateButtonState(Gun_Shoot, playerControls.gameplay.Gun_Shoot);
+        Gun_Reload = UpdateButtonState(Gun_Reload, playerControls.gameplay.Gun_Reload);
+        Gun_Powder = UpdateButtonState(Gun_Powder, playerControls.gameplay.Gun_Powder);
+        Gun_Bullet = UpdateButtonState(Gun_Bullet, playerControls.gameplay.Gun_Bullet);
+        Gun_Tamp = UpdateButtonState(Gun_Tamp, playerControls.gameplay.Gun_Tamp);
 
-        //this is temporary code just to demonstrate that the game detects player input and can respond to it.
-        transform.position += new Vector3(movementValue.x, 0, movementValue.y) * Time.deltaTime * 10;
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + (new Vector3(-mouseValue.y, mouseValue.x, 0) * Time.deltaTime * 10f));
-        ////////////////////////
-        
+        //wasd = move
+        //mouse = look
+        //left click = shoot
         //r = reload
         //f = powder
         //e = add bullet
         //c = tamp
-        
     }
 
-    private void Shoot(InputAction.CallbackContext context)
+    private InputButtonState UpdateButtonState(InputButtonState buttonState, InputAction input)
     {
-        Debug.Log("left click");
-    }    
-    private void Reload(InputAction.CallbackContext context)
-    {
-        if(context.started)
+        if (Mathf.Approximately(input.ReadValue<float>(), 1f))
         {
-            //reload button key down
-            Debug.Log("reload key down");
+            if (buttonState.Equals(InputButtonState.ButtonDown))
+                buttonState = InputButtonState.ButtonHeld;
+            else if (!buttonState.Equals(InputButtonState.ButtonHeld))
+                buttonState = InputButtonState.ButtonDown;
         }
-        if(context.canceled)
+        else
         {
-            //reload button key up
-            Debug.Log("reload key up");
+            if (buttonState.Equals(InputButtonState.ButtonUp))
+                buttonState = InputButtonState.ButtonNotHeld;
+            else if (!buttonState.Equals(InputButtonState.ButtonNotHeld))
+                buttonState = InputButtonState.ButtonUp;
         }
 
-        Debug.Log(context.duration);
-    }    
+        //log inputs
+        if (logInputs)
+            if (buttonState.Equals(InputButtonState.ButtonDown) || buttonState.Equals(InputButtonState.ButtonUp))
+                Debug.Log(input.name + " " + buttonState.ToString());
+
+        return buttonState;
+    }
 }
