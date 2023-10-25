@@ -1,0 +1,14 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl custom5(Clone)
+Kd 0.769 0.761 0.863
+map_Kd Textures/custom5(Clone).png
+
+newmtl custom4(Clone)
+Kd 0.255 0.251 0.329
+map_Kd Textures/custom4(Clone).png
+
+newmtl dark(Clone)
+Kd 0.255 0.251 0.329
+map_Kd Textures/dark(Clone).png
+
