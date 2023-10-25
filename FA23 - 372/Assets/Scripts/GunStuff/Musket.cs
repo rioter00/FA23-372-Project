@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Windows;
 
-public class Musket : MonoBehaviour{
+public class Musket : MonoBehaviour {
+    [SerializeField] InputManager inputManager;
     [Header("Gun Stuff (No need to touch)")]
     [SerializeField] GunState gState;
     [SerializeField] ReloadingState rState;
@@ -28,12 +30,12 @@ public class Musket : MonoBehaviour{
     private void Update() {
         switch (gState) {
             case GunState.READYTOFIRE: //When reload is complete and the gun has bullets
-                if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                if (inputManager.Gun_Shoot == InputButtonState.ButtonDown) {
                     Shoot(); //Shoots the gun
                 }
                 break;
             case GunState.NOTREADY: //For failed reloads as well as after the gun is fired
-                if (Input.GetKeyDown(KeyCode.R)) {
+                if (inputManager.Gun_Reload == InputButtonState.ButtonDown) {
                     gState = GunState.RELOADING;
                     rState = ReloadingState.RELOADINGSTAGE1;
                     tamps = 0;
@@ -44,11 +46,11 @@ public class Musket : MonoBehaviour{
             case GunState.RELOADING: //For the different stages of reloading
                 switch (rState) {
                     case ReloadingState.RELOADINGSTAGE1: //Putting powder in the gun (between 1 and 2 seconds of holding f)
-                        if (Input.GetKey(KeyCode.F)) {
+                        if (inputManager.Gun_Powder == InputButtonState.ButtonHeld) {
                             powder += Time.deltaTime; //For adding powder to the gun
                             TextUpdate();
                         }
-                        else if (Input.GetKeyUp(KeyCode.F)) { //When f is released check to see if there's enough powder in the gun
+                        else if (inputManager.Gun_Powder == InputButtonState.ButtonUp) { //When f is released check to see if there's enough powder in the gun
                             if(powder <= 2f && powder >= 1f) {
                                 rState = ReloadingState.RELOADINGSTAGE2;
                                 TextUpdate();
@@ -60,7 +62,7 @@ public class Musket : MonoBehaviour{
                         }
                         break;
                     case ReloadingState.RELOADINGSTAGE2: //Putting bullet in gun (one press of e)
-                        if (Input.GetKeyDown(KeyCode.E)) {
+                        if (inputManager.Gun_Bullet == InputButtonState.ButtonDown) {
                             bullets++; //Adds the bullet to the gun (can be changed later to add special reload cases if wanted)
                             rState = ReloadingState.RELOADINGSTAGE3;
                             TextUpdate();
@@ -68,7 +70,7 @@ public class Musket : MonoBehaviour{
                         break;
                     case ReloadingState.RELOADINGSTAGE3: //Tamping contents down in gun (three presses of c)
                         if(tamps < 3) {
-                            if (Input.GetKeyDown(KeyCode.C)) {
+                            if (inputManager.Gun_Tamp == InputButtonState.ButtonDown) {
                                 tamps++;
                                 TextUpdate();
                             }
@@ -83,9 +85,9 @@ public class Musket : MonoBehaviour{
                 }
                 break;
         }
-        if(gState == GunState.READYTOFIRE && Input.GetKeyDown(KeyCode.Mouse0)) {
+        /*if(gState == GunState.READYTOFIRE && Input.GetKeyDown(KeyCode.Mouse0)) {
             Shoot();
-        }
+        }*/
         
     }
 
