@@ -89,6 +89,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""7881af78-2fd1-4931-bea0-1c623725d6cd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Gun_Bullet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23abee6b-380a-42fe-be57-44e6a45077e1"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +247,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_gameplay_Gun_Powder = m_gameplay.FindAction("Gun_Powder", throwIfNotFound: true);
         m_gameplay_Gun_Bullet = m_gameplay.FindAction("Gun_Bullet", throwIfNotFound: true);
         m_gameplay_Gun_Tamp = m_gameplay.FindAction("Gun_Tamp", throwIfNotFound: true);
+        m_gameplay_Dash = m_gameplay.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +316,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_gameplay_Gun_Powder;
     private readonly InputAction m_gameplay_Gun_Bullet;
     private readonly InputAction m_gameplay_Gun_Tamp;
+    private readonly InputAction m_gameplay_Dash;
     public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -306,6 +328,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Gun_Powder => m_Wrapper.m_gameplay_Gun_Powder;
         public InputAction @Gun_Bullet => m_Wrapper.m_gameplay_Gun_Bullet;
         public InputAction @Gun_Tamp => m_Wrapper.m_gameplay_Gun_Tamp;
+        public InputAction @Dash => m_Wrapper.m_gameplay_Dash;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -336,6 +359,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Gun_Tamp.started += instance.OnGun_Tamp;
             @Gun_Tamp.performed += instance.OnGun_Tamp;
             @Gun_Tamp.canceled += instance.OnGun_Tamp;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -361,6 +387,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Gun_Tamp.started -= instance.OnGun_Tamp;
             @Gun_Tamp.performed -= instance.OnGun_Tamp;
             @Gun_Tamp.canceled -= instance.OnGun_Tamp;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -387,5 +416,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnGun_Powder(InputAction.CallbackContext context);
         void OnGun_Bullet(InputAction.CallbackContext context);
         void OnGun_Tamp(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }
