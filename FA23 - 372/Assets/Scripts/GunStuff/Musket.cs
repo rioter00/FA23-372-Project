@@ -4,13 +4,18 @@ using UnityEngine;
 using TMPro;
 
 public class Musket : MonoBehaviour{
-    [Header("GunStuff")]
+    [Header("Gun Stuff (No need to touch)")]
     [SerializeField] GunState gState;
     [SerializeField] ReloadingState rState;
     [SerializeField] int bullets, tamps;
     [SerializeField] float powder;
-    [SerializeField] TextMeshProUGUI bulletsText, powderText, tampsText, gunStateText, reloadingStateText; //Debugging text
-    [Header("BulletStuff")]
+    [Header("UI Stuff")]
+    [SerializeField] TextMeshProUGUI bulletsText;
+    [SerializeField] TextMeshProUGUI powderText;
+    [SerializeField] TextMeshProUGUI tampsText;
+    [SerializeField] TextMeshProUGUI gunStateText;
+    [SerializeField] TextMeshProUGUI reloadingStateText; //Debugging text
+    [Header("Bullet Stuff")]
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletSpeed;
@@ -88,8 +93,8 @@ public class Musket : MonoBehaviour{
         gState = GunState.NOTREADY;
         bullets--;
         TextUpdate();
-        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation); //Spawns bullet at bulletSpawnPoint
+        bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed; //Gives bullet velocity based on bulletSpeed
     }
 
     private void TextUpdate() { //Updates all the UI for debugging in the scene

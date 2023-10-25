@@ -164,7 +164,7 @@ MonoBehaviour:
   reloadingStateText: {fileID: 992560163}
   bulletSpawnPoint: {fileID: 214229537}
   bulletPrefab: {fileID: 8493909997149187623, guid: 6f82851f5e9ca8241ac6120657c616b0, type: 3}
-  bulletSpeed: 10
+  bulletSpeed: 50
 --- !u!4 &199225220
 Transform:
   m_ObjectHideFlags: 0
