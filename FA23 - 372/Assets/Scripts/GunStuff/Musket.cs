@@ -4,11 +4,16 @@ using UnityEngine;
 using TMPro;
 
 public class Musket : MonoBehaviour{
+    [Header("GunStuff")]
     [SerializeField] GunState gState;
     [SerializeField] ReloadingState rState;
     [SerializeField] int bullets, tamps;
     [SerializeField] float powder;
     [SerializeField] TextMeshProUGUI bulletsText, powderText, tampsText, gunStateText, reloadingStateText; //Debugging text
+    [Header("BulletStuff")]
+    [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] float bulletSpeed;
     private void Start() {
         gState = GunState.READYTOFIRE;
         bullets = 1;
@@ -83,7 +88,8 @@ public class Musket : MonoBehaviour{
         gState = GunState.NOTREADY;
         bullets--;
         TextUpdate();
-        //Other shooting stuff
+        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
     }
 
     private void TextUpdate() { //Updates all the UI for debugging in the scene
