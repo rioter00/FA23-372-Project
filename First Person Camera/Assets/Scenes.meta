@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: bb5525e20134e477abbe25fbcf729fa3
+=======
+guid: 55fc554905e7bb74ba05eb3de1dfa152
+>>>>>>> parent of 02bcb2e (FPS movement and camera)
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
