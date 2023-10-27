@@ -11,13 +11,14 @@ public class InputManager : MonoBehaviour
     [SerializeField] private bool logInputs;
     private PlayerInputActions playerControls;
 
-    [SerializeField] public Vector2 Movement;
-    [SerializeField] public Vector2 Mouse;
-    [SerializeField] public InputButtonState Gun_Shoot;
-    [SerializeField] public InputButtonState Gun_Reload;
-    [SerializeField] public InputButtonState Gun_Powder;
-    [SerializeField] public InputButtonState Gun_Bullet;
-    [SerializeField] public InputButtonState Gun_Tamp;
+    [SerializeField] Vector2 Movement;
+    [SerializeField] Vector2 Mouse;
+    [SerializeField] InputButtonState Gun_Shoot;
+    [SerializeField] InputButtonState Gun_Reload;
+    [SerializeField] InputButtonState Gun_Powder;
+    [SerializeField] InputButtonState Gun_Bullet;
+    [SerializeField] InputButtonState Gun_Tamp;
+    [SerializeField] InputButtonState Dash;
 
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class InputManager : MonoBehaviour
         Gun_Powder = UpdateButtonState(Gun_Powder, playerControls.gameplay.Gun_Powder);
         Gun_Bullet = UpdateButtonState(Gun_Bullet, playerControls.gameplay.Gun_Bullet);
         Gun_Tamp = UpdateButtonState(Gun_Tamp, playerControls.gameplay.Gun_Tamp);
+        Dash = UpdateButtonState(Dash, playerControls.gameplay.Dash);
 
         //wasd = move
         //mouse = look
@@ -55,6 +57,13 @@ public class InputManager : MonoBehaviour
         //f = powder
         //e = add bullet
         //c = tamp
+
+        //debug area
+        /*
+        if (Gun_Shoot == InputButtonState.ButtonDown)
+        {
+            Debug.Log("hi");
+        }*/
     }
 
     private InputButtonState UpdateButtonState(InputButtonState buttonState, InputAction input)
@@ -80,5 +89,14 @@ public class InputManager : MonoBehaviour
                 Debug.Log(input.name + " " + buttonState.ToString());
 
         return buttonState;
+    }
+
+    public void EnableInput()
+    {
+        playerControls.gameplay.Enable();
+    }
+    public void DisableInput()
+    {
+        playerControls.gameplay.Disable();
     }
 }
