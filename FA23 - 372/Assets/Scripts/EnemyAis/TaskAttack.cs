@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class TaskAttack : Node
+public class TaskAttack : EnemyNode
 {
     private Transform lastTarget;
     private PlayerManager playerManager;

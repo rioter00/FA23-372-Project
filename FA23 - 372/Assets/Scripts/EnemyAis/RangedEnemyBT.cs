@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class RangedEnemyBT : BehaviorTree.Tree
+public class RangedEnemyBT : BehaviorTree.EnemyTree
 {
     public UnityEngine.Transform[] waypoints;
 
@@ -16,10 +16,10 @@ public class RangedEnemyBT : BehaviorTree.Tree
     public int attackDamage = 10;
 
 
-    protected override Node SetupTree()
+    protected override EnemyNode SetupTree()
     {
-        Node root = new Selector(new List<Node> {
-            new Sequence(new List<Node>{
+        EnemyNode root = new Selector(new List<EnemyNode> {
+            new Sequence(new List<EnemyNode>{
                 new CheckInAttackRange(transform,attackRange),
                 new TaskAttack(transform, attackTime, attackDamage),
             }),
@@ -32,7 +32,7 @@ public class RangedEnemyBT : BehaviorTree.Tree
              }),
              
              */
-            new Sequence(new List<Node>{
+            new Sequence(new List<EnemyNode>{
                 new CheckEnemyInRange(transform,agroRange),
                /* new Sequence(new List<Node>{ 
                     new Flip(new List<Node>{

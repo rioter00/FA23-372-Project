@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace BehaviorTree
 {
-    public class Flip : Node
+    public class Flip : EnemyNode
     {
         public Flip(): base() { }
-        public Flip(List<Node> children) : base(children) { }
+        public Flip(List<EnemyNode> children) : base(children) { }
 
         public override NodeState Evaluate() {
-            foreach (Node node in children)
+            foreach (EnemyNode node in children)
             {
                 switch (node.Evaluate()) {
                     case NodeState.RUNNING:
