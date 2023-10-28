@@ -13,12 +13,12 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] Vector2 Movement;
     [SerializeField] Vector2 Mouse;
-    [SerializeField] InputButtonState Gun_Shoot;
-    [SerializeField] InputButtonState Gun_Reload;
-    [SerializeField] InputButtonState Gun_Powder;
-    [SerializeField] InputButtonState Gun_Bullet;
-    [SerializeField] InputButtonState Gun_Tamp;
-    [SerializeField] InputButtonState Dash;
+    [SerializeField] public InputButtonState Gun_Shoot;
+    [SerializeField] public InputButtonState Gun_Reload;
+    [SerializeField] public InputButtonState Gun_Powder;
+    [SerializeField] public InputButtonState Gun_Bullet;
+    [SerializeField] public InputButtonState Gun_Tamp;
+    [SerializeField] public InputButtonState Dash;
 
     private void Awake()
     {
