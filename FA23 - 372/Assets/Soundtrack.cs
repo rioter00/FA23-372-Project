@@ -47,6 +47,7 @@ public class Soundtrack : MonoBehaviour
         {
             if (!AudioSource.isPlaying)
             {
+                clipIndex++;
                 setNextClip();
             }
         }
