@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class CheckEnemyInRange : Node
+public class CheckEnemyInRange : EnemyNode
 {
     private Transform transform;
     public static int playerLayerMask = 1 << 6;

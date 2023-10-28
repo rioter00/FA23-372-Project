@@ -4,7 +4,7 @@ using UnityEngine;
 using BehaviorTree;
 using System.Security.Cryptography;
 
-public class TaskPatrol : Node
+public class TaskPatrol : EnemyNode
 {
     private Transform[] waypoints;
     private Transform transform;

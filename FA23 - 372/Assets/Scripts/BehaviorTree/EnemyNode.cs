@@ -8,28 +8,28 @@ namespace BehaviorTree
         RUNNING, SUCCESS, FAILURE
     }
 
-    public class Node
+    public class EnemyNode
     {
         protected NodeState state;
 
-        public Node parent;
-        protected List<Node> children = new List<Node>();
+        public EnemyNode parent;
+        protected List<EnemyNode> children = new List<EnemyNode>();
 
         private Dictionary<string, object> dataContext = new Dictionary<string, object>();
 
         //constructors
-        public Node() {
+        public EnemyNode() {
             parent = null;
         }
 
-        public Node(List<Node> children) {
-            foreach (Node child in children) {
+        public EnemyNode(List<EnemyNode> children) {
+            foreach (EnemyNode child in children) {
                 Attach(child);
             }
         }
 
         //to attach a node to the tree
-        private void Attach(Node node) {
+        private void Attach(EnemyNode node) {
             node.parent = this;
             children.Add(node);
         }
@@ -49,7 +49,7 @@ namespace BehaviorTree
                 return val;
             }
 
-            Node node = parent;
+            EnemyNode node = parent;
             if (node != null)
             {
                 val = node.GetData(key);
@@ -64,7 +64,7 @@ namespace BehaviorTree
                 return true;
             }
 
-            Node node = parent;
+            EnemyNode node = parent;
             if (node != null)
             {
                 cleared = node.ClearData(key);

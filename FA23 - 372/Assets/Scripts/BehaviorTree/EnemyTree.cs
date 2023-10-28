@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace BehaviorTree { 
-    public abstract class Tree : MonoBehaviour
+    public abstract class EnemyTree : MonoBehaviour
     {
-        private Node root = null;
+        private EnemyNode root = null;
 
         protected void Start()
         {
@@ -19,6 +19,6 @@ namespace BehaviorTree {
             }
         }
 
-        protected abstract Node SetupTree();
+        protected abstract EnemyNode SetupTree();
     }
 }

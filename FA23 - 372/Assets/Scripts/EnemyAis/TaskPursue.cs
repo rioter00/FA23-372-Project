@@ -4,7 +4,7 @@ using UnityEngine;
 using BehaviorTree;
 using UnityEditor;
 
-public class TaskPursue : Node
+public class TaskPursue : EnemyNode
 {
     private Transform transform;
     private float speed;
