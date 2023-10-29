@@ -74,7 +74,7 @@ public class Dashing : MonoBehaviour
         delayedForceToApply = forceToApply;
         Invoke(nameof(ResetDash), dashDuration);
         Invoke(nameof(DelayedDashForce), 0.025f);
-        pm.dashing = true;
+        //pm.dashing = true;
 
     }
 
@@ -90,7 +90,7 @@ public class Dashing : MonoBehaviour
     //reseting dash after pressing dash
     private void ResetDash()
     {
-        pm.dashing = false;
+        //pm.dashing = false;
 
         if (disableGravity)
             rb.useGravity = true;
