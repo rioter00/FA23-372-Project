@@ -1,0 +1,8 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl wood(Clone)
+Kd 0.462 0.15 0.05
+
+newmtl woodLight(Clone)
+Kd 0.275 0.153 0.067
+
