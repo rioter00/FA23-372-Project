@@ -20,9 +20,9 @@ public class Health : MonoBehaviour {
 
     private void Death() {
         lState = LivingState.DEAD;
-        Destroy(gameObject);
         if (gameObject.CompareTag("Enemy")) {
             //call enemy death event
+            Destroy(gameObject);
         }
         else {
             //call player death event
