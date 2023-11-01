@@ -18,7 +18,8 @@ public class TaskPatrol : Node
 
     private float speed;
     // Start is called before the first frame update
-    public TaskPatrol(Transform transform, Transform[] waypoints, float speed) {
+    public TaskPatrol(Transform transform, Transform[] waypoints, float speed)
+    {
         this.waypoints = waypoints;
         this.transform = transform;
         //animator = transform.GetComponent<Animator>();
@@ -38,7 +39,8 @@ public class TaskPatrol : Node
                 //this is where you set the animator to walking
             }
         }
-        else {
+        else
+        {
             Transform wp = waypoints[currentWaypointIndex];
             //if they are at the point then switch to waiting to be true
             if (Vector3.Distance(transform.position, wp.position) < 0.01f)
@@ -50,8 +52,9 @@ public class TaskPatrol : Node
                 currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
                 //where you tell the animator that you aren't walking
             }
-            else {
-            //if they aren't waiting and aren't near a point then move them towards the point
+            else
+            {
+                //if they aren't waiting and aren't near a point then move them towards the point
                 transform.position = Vector3.MoveTowards(transform.position, wp.position, speed * Time.deltaTime);
                 transform.LookAt(wp.position);
             }
@@ -59,4 +62,5 @@ public class TaskPatrol : Node
         state = NodeState.RUNNING;
         return state;
     }
+
 }

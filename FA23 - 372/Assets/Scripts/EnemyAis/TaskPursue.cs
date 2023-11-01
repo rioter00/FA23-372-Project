@@ -28,9 +28,10 @@ public class TaskPursue : Node
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             transform.LookAt(transform.position);
         }
-        
 
-        state = NodeState.RUNNING; 
+
+        state = NodeState.RUNNING;
         return state;
     }
+
 }

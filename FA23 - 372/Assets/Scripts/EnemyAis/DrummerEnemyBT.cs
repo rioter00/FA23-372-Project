@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class DrummerEnemyBT : BehaviorTree.Tree
+/*public class DrummerEnemyBT : BehaviorTree.Tree
 {
     public UnityEngine.Transform[] waypoints;
 
@@ -31,7 +31,7 @@ public class DrummerEnemyBT : BehaviorTree.Tree
                 TaskBuffStats();
              }),
              
-             */
+             
             new Sequence(new List<Node>{
                 new CheckTeammateInRange(transform,agroRange),
                /* new Sequence(new List<Node>{ 
@@ -43,11 +43,11 @@ public class DrummerEnemyBT : BehaviorTree.Tree
                     TaskDodgePursue(),
                     TaskPursue(),
                 }),
-                }),*/
+                }),
                 new TaskPursue(transform,speed,distanceFromPlayer),
             }),
             new TaskPatrol(transform, waypoints,speed),
         });
         return root;
     }
-}
+}*/

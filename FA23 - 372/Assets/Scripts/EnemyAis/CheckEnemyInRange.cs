@@ -8,12 +8,15 @@ public class CheckEnemyInRange : Node
     private Transform transform;
     public static int playerLayerMask = 1 << 6;
     private float agroRange;
+    //private AIOverseer AIO;
+    private GameObject Enemy;
 
-    public CheckEnemyInRange(Transform transform, float agroRange)
+    public CheckEnemyInRange(GameObject Enemy, float agroRange)// AIOverseer AIO
     {
-        this.transform = transform;
+        transform = Enemy.transform;
+        this.Enemy = Enemy;
         this.agroRange = agroRange;
-
+        //this.AIO = AIO;
     }
 
     public override NodeState Evaluate()
@@ -28,11 +31,15 @@ public class CheckEnemyInRange : Node
             {
                 //uses parent.parent because the parent is 2 nodes about this and we want to set this in the dictionary of the node so the whole tree can access it
                 parent.parent.SetData("target", initialColliders[0].transform);
+
+                //AIO.ReportFightingAgentAddition(Enemy);
+
                 //set animation
                 state = NodeState.SUCCESS;
                 return state;
             }
-            else {
+            else
+            {
                 ClearData("target");
             }
 
@@ -40,7 +47,7 @@ public class CheckEnemyInRange : Node
             return state;
         }
 
-       
+
 
         state = NodeState.SUCCESS;
         return state;

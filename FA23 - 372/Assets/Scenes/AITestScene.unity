@@ -279,6 +279,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &763046178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 763046179}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &763046179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763046178}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1409172109}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &794033631
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,16 +494,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1f6d3c853cf08408a7623157135b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rush: 0
+  dodge: 0
+  agroRange: 6
+  attackRange: 2
+  attackTime: 1
   waypoints:
   - {fileID: 946821802}
   - {fileID: 1407060095}
   - {fileID: 387011153}
   - {fileID: 143642317}
   speed: 2
-  agroRange: 6
   distanceFromPlayer: 0.1
-  attackRange: 2
-  attackTime: 1
   attackDamage: 10
 --- !u!136 &933561475
 CapsuleCollider:
@@ -891,15 +924,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff48c3002daea846bf0749f24ce3f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rush: 0
+  dodge: 0
+  agroRange: 6
+  attackRange: 6
+  attackTime: 1
   waypoints:
   - {fileID: 877392431}
   - {fileID: 2111257488}
   speed: 2
-  agroRange: 6
   distanceFromPlayer: 0.1
-  attackRange: 2
-  attackTime: 1
   attackDamage: 10
+  arrowShootPoint: {fileID: 763046179}
+  arrowPrefab: {fileID: 7658089075299116112, guid: bfb0b22005f78c544833ad5fda99b442, type: 3}
+  arrowSpeed: 100
 --- !u!136 &1409172106
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -985,7 +1023,8 @@ Transform:
   m_LocalPosition: {x: 8.358526, y: 2.22, z: 7.2415333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 763046179}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2111257487
