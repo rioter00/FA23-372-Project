@@ -346,7 +346,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 262018428}
-  - component: {fileID: 262018430}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -370,20 +369,6 @@ Transform:
   - {fileID: 1945874992}
   m_Father: {fileID: 990993246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &262018430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262018427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff55d87ac9c2042b0df5ff572de180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1
-  HP: 0
 --- !u!1 &277688199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,7 +1064,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 587880052}
-  - component: {fileID: 587880053}
   m_Layer: 0
   m_Name: TestEnemy (7)
   m_TagString: Enemy
@@ -1103,20 +1087,6 @@ Transform:
   - {fileID: 361657436}
   m_Father: {fileID: 990993246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &587880053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587880051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff55d87ac9c2042b0df5ff572de180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1
-  HP: 0
 --- !u!1 &610425371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1096,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 610425372}
-  - component: {fileID: 610425373}
   m_Layer: 0
   m_Name: TestEnemy (2)
   m_TagString: Enemy
@@ -1152,20 +1121,6 @@ Transform:
   - {fileID: 730663622}
   m_Father: {fileID: 990993246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &610425373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610425371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff55d87ac9c2042b0df5ff572de180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1
-  HP: 0
 --- !u!1 &714168529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1578,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1184285043}
-  - component: {fileID: 1184285044}
   m_Layer: 0
   m_Name: TestEnemy (1)
   m_TagString: Enemy
@@ -1647,20 +1601,6 @@ Transform:
   - {fileID: 1744480113}
   m_Father: {fileID: 990993246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1184285044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1184285042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff55d87ac9c2042b0df5ff572de180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1
-  HP: 0
 --- !u!1 &1451385950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,7 +1925,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1637116490}
-  - component: {fileID: 1637116491}
   m_Layer: 0
   m_Name: TestEnemy (6)
   m_TagString: Enemy
@@ -2009,20 +1948,6 @@ Transform:
   - {fileID: 293184582}
   m_Father: {fileID: 990993246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1637116491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637116489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff55d87ac9c2042b0df5ff572de180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1
-  HP: 0
 --- !u!1 &1744480112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,7 +2064,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1754638825}
-  - component: {fileID: 1754638826}
   m_Layer: 0
   m_Name: TestEnemy (4)
   m_TagString: Enemy
@@ -2163,20 +2087,6 @@ Transform:
   - {fileID: 714168530}
   m_Father: {fileID: 990993246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1754638826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754638824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff55d87ac9c2042b0df5ff572de180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1
-  HP: 0
 --- !u!1 &1760740757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,7 +2201,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860707283}
-  - component: {fileID: 1860707284}
   m_Layer: 0
   m_Name: TestEnemy (3)
   m_TagString: Enemy
@@ -2315,20 +2224,6 @@ Transform:
   - {fileID: 392222639}
   m_Father: {fileID: 990993246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1860707284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860707282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff55d87ac9c2042b0df5ff572de180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1
-  HP: 0
 --- !u!1 &1945874991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,7 +2351,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1981186523}
-  - component: {fileID: 1981186524}
   m_Layer: 0
   m_Name: TestEnemy (5)
   m_TagString: Enemy
@@ -2480,20 +2374,6 @@ Transform:
   - {fileID: 123659917}
   m_Father: {fileID: 990993246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1981186524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981186522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff55d87ac9c2042b0df5ff572de180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1
-  HP: 0
 --- !u!1 &2022540246
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour{
             Destroy(gameObject);
         }
         else if (other.CompareTag("Enemy")) { //Checks to see if it hit an enemy then damages it acordingly
-            other.GetComponentInParent<Health>().TakeDamage(1);
+            other.GetComponentInParent<EnemyHealth>().TakeDamage(1);
         }
     }
 }
