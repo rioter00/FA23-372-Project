@@ -40,9 +40,9 @@ public class SpawnManager : MonoBehaviour
             SpawnLocation chosenLocation = openSpawnLocations[Random.Range(0, openSpawnLocations.Count)];
             for(int i = 0; i < chosenLocation.prefabCap; i++)
             {
-                Vector3 spawnPos = new Vector3(Random.Range(chosenLocation.spawnBoundsMin.x, chosenLocation.spawnBoundsMax.x),
+                Vector3 spawnPos = new Vector3(Random.Range(chosenLocation.spawnBoundsMin.x, chosenLocation.spawnBoundsMax.x) + chosenLocation.transform.position.x,
                                                chosenLocation.transform.position.y,
-                                               Random.Range(chosenLocation.spawnBoundsMin.y, chosenLocation.spawnBoundsMax.y));
+                                               Random.Range(chosenLocation.spawnBoundsMin.y, chosenLocation.spawnBoundsMax.y) + chosenLocation.transform.position.z);
                 GameObject nextSoldier = Instantiate(knightPrefab, spawnPos, Quaternion.identity);
                 AIOverseer.overseer.ReportAgentAddition(nextSoldier);
                 AIOverseer.overseer.GiveHintToAgent(nextSoldier.GetComponent<NavMeshAgent>());

@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
         else Destroy(this);
     }
 
+    private void Start()
+    {
+        SpawnManager.enabledSpawnManager.SpawnWave();
+    }
+
     // REVISIT CODE BELOW ONCE I FIGURE OUT HOW WEAPONSTATE IS BEING STORED
 
     // public void OnPlayerWeaponStateChange ( WeaponState(?) state) {

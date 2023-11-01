@@ -20,10 +20,10 @@ public class SpawnLocation : MonoBehaviour
     {
         Gizmos.color = Color.cyan;
 
-        Vector3 corner_TL = new Vector3(spawnBoundsMin.x, transform.position.y, spawnBoundsMax.y);
-        Vector3 corner_BL = new Vector3(spawnBoundsMin.x, transform.position.y, spawnBoundsMin.y);
-        Vector3 corner_TR = new Vector3(spawnBoundsMax.x, transform.position.y, spawnBoundsMax.y);
-        Vector3 corner_BR = new Vector3(spawnBoundsMax.x, transform.position.y, spawnBoundsMin.y);
+        Vector3 corner_TL = new Vector3(spawnBoundsMin.x + transform.position.x, transform.position.y, spawnBoundsMax.y + transform.position.z);
+        Vector3 corner_BL = new Vector3(spawnBoundsMin.x + transform.position.x, transform.position.y, spawnBoundsMin.y + transform.position.z);
+        Vector3 corner_TR = new Vector3(spawnBoundsMax.x + transform.position.x, transform.position.y, spawnBoundsMax.y + transform.position.z);
+        Vector3 corner_BR = new Vector3(spawnBoundsMax.x + transform.position.x, transform.position.y, spawnBoundsMin.y + transform.position.z);
 
         Gizmos.DrawLine(corner_TL, corner_BL);
         Gizmos.DrawLine(corner_BL, corner_BR);
