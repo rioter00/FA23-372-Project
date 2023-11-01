@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 262018428}
+  - component: {fileID: 262018430}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -155,6 +156,20 @@ Transform:
   - {fileID: 1945874992}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &262018430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262018427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ff55d87ac9c2042b0df5ff572de180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1
+  HP: 0
 --- !u!1 &459506325
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +600,7 @@ GameObject:
   - component: {fileID: 1945874993}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
