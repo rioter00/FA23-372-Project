@@ -59,9 +59,9 @@ public class InputManager : MonoBehaviour
         //mouse = look
         //left click = shoot
         //r = reload
-        //f = powder
+        //shift = powder
         //e = add bullet
-        //c = tamp
+        //q = tamp
 
         //debug area
         /*
