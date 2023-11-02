@@ -21,6 +21,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     }
 
     private void Start(){
+        MaxHP = 1;
         HP = MaxHP;
         LState = LivingState.ALIVE;
     }

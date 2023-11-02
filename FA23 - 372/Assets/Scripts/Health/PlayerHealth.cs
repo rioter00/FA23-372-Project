@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour, IHealth{
     }
 
     private void Start(){
+        MaxHP = 4;
         HP = MaxHP;
         LState = LivingState.ALIVE;
     }
