@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 public class TaskPatrol : EnemyNode
 {
-    private Transform[] waypoints;
+    private List<Transform> waypoints = new List<Transform>();
     private Transform transform;
     //private Animator animator;
 
@@ -18,7 +18,7 @@ public class TaskPatrol : EnemyNode
 
     private float speed;
     // Start is called before the first frame update
-    public TaskPatrol(Transform transform, Transform[] waypoints, float speed) {
+    public TaskPatrol(Transform transform, List<Transform> waypoints, float speed) {
         this.waypoints = waypoints;
         this.transform = transform;
         //animator = transform.GetComponent<Animator>();
@@ -40,14 +40,16 @@ public class TaskPatrol : EnemyNode
         }
         else {
             Transform wp = waypoints[currentWaypointIndex];
+            Debug.Log("hai :3");
             //if they are at the point then switch to waiting to be true
             if (Vector3.Distance(transform.position, wp.position) < 0.01f)
             {
                 transform.position = wp.position;
                 waitCounter = 0f;
                 waiting = true;
-
-                currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+                Debug.Log("hai :3 2");
+                currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
+                Debug.Log("hai :3 3");
                 //where you tell the animator that you aren't walking
             }
             else {

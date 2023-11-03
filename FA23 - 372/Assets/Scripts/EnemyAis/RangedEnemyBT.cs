@@ -5,7 +5,7 @@ using BehaviorTree;
 
 public class RangedEnemyBT : BehaviorTree.EnemyTree
 {
-    public UnityEngine.Transform[] waypoints;
+    
 
     public float speed = 2f;
     public float agroRange = 6f;
@@ -46,7 +46,7 @@ public class RangedEnemyBT : BehaviorTree.EnemyTree
                 }),*/
                 new TaskPursue(transform,speed,distanceFromPlayer),
             }),
-            new TaskPatrol(transform, waypoints,speed),
+            new TaskPatrol(transform, AIOverseer.overseer.waypoints,speed),
         });
         return root;
     }
