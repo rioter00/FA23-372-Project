@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afeb351660eb7d94ea9451b4395e7982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knightPrefab: {fileID: 0}
+  knightPrefab: {fileID: 6251559957116596838, guid: cb568334f3091974eb0ee433e6950905, type: 3}
   bowmenPrefab: {fileID: 0}
   buglerPrefab: {fileID: 0}
 --- !u!114 &1792533258
