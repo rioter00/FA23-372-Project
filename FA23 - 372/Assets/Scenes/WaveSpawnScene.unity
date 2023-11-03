@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 555068090}
   m_Layer: 0
   m_Name: waypoint2
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -878,7 +878,7 @@ GameObject:
   - component: {fileID: 1226145154}
   m_Layer: 0
   m_Name: waypoint1
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1434,6 +1434,7 @@ MonoBehaviour:
   alertMin: 0
   alertMax: 1
   alertThreshold: 0.5
+  waypoints: []
 --- !u!114 &1792533259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,7 +1961,7 @@ GameObject:
   - component: {fileID: 2045542160}
   m_Layer: 0
   m_Name: waypoint3
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
