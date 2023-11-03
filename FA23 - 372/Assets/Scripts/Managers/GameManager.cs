@@ -10,10 +10,20 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int playerHealth = 100;
     [HideInInspector] public int playerScore = 0;
 
+
     private void Awake()
     {
         if (enabledGameManager == null) enabledGameManager = this;
         else Destroy(this);
+    }
+
+    private void Start()
+    {
+        GameObject[] allSpawnLocations = GameObject.FindGameObjectsWithTag("SpawnLocation");
+        foreach (GameObject g in allSpawnLocations)
+            if (g.GetComponent<SpawnLocation>().open)
+                SpawnManager.enabledSpawnManager.AddOpenSpawnLocation(g.GetComponent<SpawnLocation>());
+        SpawnManager.enabledSpawnManager.SpawnWave();
     }
 
     // REVISIT CODE BELOW ONCE I FIGURE OUT HOW WEAPONSTATE IS BEING STORED
