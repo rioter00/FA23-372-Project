@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public enum InputButtonState { ButtonNotHeld, ButtonDown, ButtonHeld, ButtonUp };
@@ -11,14 +12,16 @@ public class InputManager : MonoBehaviour
     [SerializeField] private bool logInputs;
     private PlayerInputActions playerControls;
 
-    [SerializeField] Vector2 Movement;
-    [SerializeField] Vector2 Mouse;
+    [SerializeField] public Vector2 Movement;
+    [SerializeField] public Vector2 Mouse;
     [SerializeField] public InputButtonState Gun_Shoot;
     [SerializeField] public InputButtonState Gun_Reload;
     [SerializeField] public InputButtonState Gun_Powder;
     [SerializeField] public InputButtonState Gun_Bullet;
     [SerializeField] public InputButtonState Gun_Tamp;
     [SerializeField] public InputButtonState Dash;
+
+    [HideInInspector] public UnityEvent OnDashButtonDown;
 
     private void Awake()
     {
@@ -50,13 +53,15 @@ public class InputManager : MonoBehaviour
         Gun_Tamp = UpdateButtonState(Gun_Tamp, playerControls.gameplay.Gun_Tamp);
         Dash = UpdateButtonState(Dash, playerControls.gameplay.Dash);
 
+        if (Dash == InputButtonState.ButtonDown) OnDashButtonDown.Invoke();
+
         //wasd = move
         //mouse = look
         //left click = shoot
         //r = reload
-        //f = powder
+        //shift = powder
         //e = add bullet
-        //c = tamp
+        //q = tamp
 
         //debug area
         /*

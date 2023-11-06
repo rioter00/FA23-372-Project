@@ -1,0 +1,32 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl custom2(Clone)
+Kd 0.573 0.561 0.737
+
+newmtl custom3(Clone)
+Kd 0.271 0.267 0.337
+
+newmtl custom5(Clone)
+Kd 0.757 0.369 0.243
+
+newmtl tan(Clone)
+Kd 0.933 0.835 0.663
+
+newmtl woodLight(Clone)
+Kd 0.816 0.58 0.42
+
+newmtl wood(Clone)
+Kd 0.84 0.435 0.305
+
+newmtl dark(Clone)
+Kd 0.224 0.235 0.275
+
+newmtl custom7(Clone)
+Kd 0.573 0.557 0.522
+
+newmtl custom6(Clone)
+Kd 0 0 0
+
+newmtl custom19(Clone)
+Kd 0.502 0.51 0.518
+
