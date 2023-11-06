@@ -7,10 +7,14 @@ using UnityEngine.Windows;
 public class Musket : MonoBehaviour {
     [SerializeField] InputManager inputManager;
     [Header("Gun Stuff (No need to touch)")]
-    [SerializeField] GunState gState;
-    [SerializeField] ReloadingState rState;
+    [SerializeField] 
+    public GunState gState;
+    [SerializeField] 
+    public ReloadingState rState;
     [SerializeField] int bullets, tamps;
-    [SerializeField] float powder;
+    [SerializeField] 
+    public float Powder { get; private set; }
+    [SerializeField] float maxPowder, minPowder;
     [Header("UI Stuff")]
     [SerializeField] TextMeshProUGUI bulletsText;
     [SerializeField] TextMeshProUGUI powderText;
@@ -25,6 +29,8 @@ public class Musket : MonoBehaviour {
         gState = GunState.READYTOFIRE;
         bullets = 1;
         TextUpdate();
+        maxPowder = 0.66f;
+        minPowder = 0.33f;
     }
 
     private void Update() {
@@ -39,7 +45,7 @@ public class Musket : MonoBehaviour {
                     gState = GunState.RELOADING;
                     rState = ReloadingState.RELOADINGSTAGE1;
                     tamps = 0;
-                    powder = 0f;
+                    Powder = 0f;
                     TextUpdate();
                 }
                 break;
@@ -47,11 +53,11 @@ public class Musket : MonoBehaviour {
                 switch (rState) {
                     case ReloadingState.RELOADINGSTAGE1: //Putting powder in the gun (between 1 and 2 seconds of holding f)
                         if (inputManager.Gun_Powder == InputButtonState.ButtonHeld) {
-                            powder += Time.deltaTime; //For adding powder to the gun
+                            Powder += Time.deltaTime /2; //For adding powder to the gun (change var based on movement)
                             TextUpdate();
                         }
                         else if (inputManager.Gun_Powder == InputButtonState.ButtonUp) { //When f is released check to see if there's enough powder in the gun
-                            if(powder <= 2f && powder >= 1f) {
+                            if(Powder <= maxPowder && Powder >= minPowder) {
                                 rState = ReloadingState.RELOADINGSTAGE2;
                                 TextUpdate();
                             }
@@ -78,7 +84,7 @@ public class Musket : MonoBehaviour {
                         else {
                             gState = GunState.READYTOFIRE;
                             tamps = 0;
-                            powder = 0f;
+                            Powder = 0f;
                             TextUpdate();
                         }
                         break;
@@ -101,7 +107,7 @@ public class Musket : MonoBehaviour {
 
     private void TextUpdate() { //Updates all the UI for debugging in the scene
         tampsText.text = "Tamps: " + tamps;
-        powderText.text = "Powder: " + Mathf.Round(powder*100)/100;
+        powderText.text = "Powder: " + Mathf.Round(Powder*100)/100;
         bulletsText.text = "Bullets: " + bullets;
         reloadingStateText.text = rState.ToString();
         gunStateText.text = gState.ToString();
