@@ -7,6 +7,7 @@ using UnityEngine.Windows;
 public class Musket : MonoBehaviour {
     [SerializeField] InputManager inputManager;
     [SerializeField] PlayerMovement pm;
+    [SerializeField] Transform cam;
     [Header("Gun Stuff (No need to touch)")]
     [SerializeField] 
     public GunState gState;
@@ -17,6 +18,8 @@ public class Musket : MonoBehaviour {
     [SerializeField] 
     public float Powder { get; private set; }
     [SerializeField] float maxPowder, minPowder;
+    private float movingPow = 3.5f, stillPow = 1.5f, camMovePow = 2f;
+    private float lastCamRotation;
     [Header("UI Stuff")]
     [SerializeField] TextMeshProUGUI bulletsText;
     [SerializeField] TextMeshProUGUI powderText;
@@ -33,6 +36,10 @@ public class Musket : MonoBehaviour {
         TextUpdate();
         maxPowder = 0.66f;
         minPowder = 0.33f;
+    }
+
+    private void FixedUpdate() {
+        lastCamRotation = cam.rotation.x;
     }
 
     private void Update() {
@@ -55,13 +62,23 @@ public class Musket : MonoBehaviour {
                 switch (rState) {
                     case ReloadingState.RELOADINGSTAGE1: //Putting powder in the gun (between 1 and 2 seconds of holding f)
                         if (inputManager.Gun_Powder == InputButtonState.ButtonHeld) { //For adding powder to the gun
-                            if (pm.currentState == PlayerMovement.MovementState.still) {
-                                Powder += Time.deltaTime / 2; //if the player is still you can fill powder super fast
+                            if (pm.currentState == PlayerMovement.MovementState.still) { //if the player is still you can fill powder super fast
+                                if (cam.rotation.x != lastCamRotation) { //checks for camera movement that also inhibits pouring
+                                    Powder += Time.deltaTime / (stillPow * camMovePow);
+                                }
+                                else {
+                                    Powder += Time.deltaTime / stillPow;
+                                }
                             }
-                            else if (pm.currentState == PlayerMovement.MovementState.moving) {
-                                Powder += Time.deltaTime / 4; //if moving powder fills at half speed
+                            else if (pm.currentState == PlayerMovement.MovementState.moving) { //if the player is moving it slows the reloading by quite a bit
+                                if (cam.rotation.x != lastCamRotation) { //checks for camera movement that also inhibits pouring
+                                    Powder += Time.deltaTime / (movingPow * camMovePow);
+                                }
+                                else {
+                                    Powder += Time.deltaTime / movingPow;
+                                }
                             }
-                            else {
+                            else { //dashing
                                 //powder doesn't fill at all
                             }
                              
