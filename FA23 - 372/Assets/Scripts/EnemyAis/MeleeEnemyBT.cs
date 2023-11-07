@@ -2,24 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
+using UnityEngine.AI;
 
 public class MeleeEnemyBT : BehaviorTree.EnemyTree
 {
-    public UnityEngine.Transform[] waypoints;
-
-    public float speed = 2f;
-    public float agroRange = 6f;
-    public float distanceFromPlayer = .1f;
-    public float attackRange = 2f;
-    public float attackTime = 1f;
-    public int attackDamage = 10;
-
-
+    private float time;
     protected override EnemyNode SetupTree()
     {
+        
         EnemyNode root = new Selector(new List<EnemyNode> {
             new Sequence(new List<EnemyNode>{
-                new CheckInAttackRange(transform, attackRange),
+                new CheckInAttackRange(transform, Agent.stoppingDistance),
                 new TaskAttack(transform, attackTime,attackDamage),
             }),
             /*new Sequence(new List<Node>{
@@ -43,10 +36,14 @@ public class MeleeEnemyBT : BehaviorTree.EnemyTree
                     TaskPursue(),
                 }),
                 }),*/
-                new TaskPursue(transform,speed,distanceFromPlayer),
+                new TaskPursue(transform,Agent),
             }),
-            new TaskPatrol(transform, waypoints,speed),
-        });
+            new Sequence(new List<EnemyNode>{
+                //new CheckTimePassed(transform, Agent),
+                new TaskPatrol(transform, AIOverseer.overseer.waypoints,Agent),
+            }),
+            //new GoToHint(Agent),
+        }); 
         return root;
     }
 }

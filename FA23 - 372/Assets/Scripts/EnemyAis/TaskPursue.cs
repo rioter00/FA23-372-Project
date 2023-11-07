@@ -3,33 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 using UnityEditor;
+using UnityEngine.AI;
 
 public class TaskPursue : EnemyNode
 {
     private Transform transform;
-    private float speed;
-    private float distanceFromPlayer;
-    //private float speed = MeleeEnemyBT.speed;
+    private NavMeshAgent Agent;
 
-    public TaskPursue(Transform transfom, float speed, float distanceFromPlayer)
+    public TaskPursue(Transform transfom, NavMeshAgent Agent)
     {
         this.transform = transfom;
-        this.speed = speed;
-        this.distanceFromPlayer = distanceFromPlayer;
-
+        this.Agent = Agent;
     }
 
     public override NodeState Evaluate()
     {
         Transform target = (Transform)GetData("target");
-
-        if (Vector3.Distance(transform.position, target.position) > distanceFromPlayer)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            transform.LookAt(transform.position);
-        }
-        
-
+        Agent.destination= target.position;
         state = NodeState.RUNNING; 
         return state;
     }
