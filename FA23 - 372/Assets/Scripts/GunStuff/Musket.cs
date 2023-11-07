@@ -12,7 +12,8 @@ public class Musket : MonoBehaviour {
     public GunState gState;
     [SerializeField] 
     public ReloadingState rState;
-    [SerializeField] int bullets, tamps;
+    [SerializeField] 
+    public int bullets, tamps;
     [SerializeField] 
     public float Powder { get; private set; }
     [SerializeField] float maxPowder, minPowder;
