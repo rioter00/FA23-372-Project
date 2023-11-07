@@ -77,7 +77,7 @@ public class UILocationIndicator : MonoBehaviour
             currentTime += increment;
             killsCanvasGroup.alpha = EvaluateCurve(fadeCurve, Mathf.Lerp(1, 0, currentTime));
             // reloadCanvas.alpha = Mathf.Lerp(1, 0, currentTime);
-            print(killsCanvasGroup.alpha);
+            // print(killsCanvasGroup.alpha);
             yield return false;
         }
         fadingIn = false;
@@ -93,7 +93,7 @@ public class UILocationIndicator : MonoBehaviour
         {
             currentTime += increment;
             killsCanvasGroup.alpha = Mathf.Lerp(1, 0, currentTime);
-            print(killsCanvasGroup.alpha);
+            // print(killsCanvasGroup.alpha);
             yield return false;
         }
         fadingOut = false;

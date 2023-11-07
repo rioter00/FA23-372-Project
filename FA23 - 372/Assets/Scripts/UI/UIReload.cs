@@ -5,19 +5,21 @@ using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
+using Debug = System.Diagnostics.Debug;
 
 public class UIReload : MonoBehaviour
 {
-
+    [SerializeField] private Musket musket;
+    
     [SerializeField] private CanvasGroup reloadCanvas;
     [SerializeField] private bool invisibleOnEnable;
     [SerializeField] private float fadeTimeInMS;
-    [SerializeField] private GameObject powderSlider;
+    [SerializeField] private Slider powderSlider;
     [SerializeField] private GameObject sweetspotMarkers;
-    private bool fadingIn, fadingOut = false;
+    [SerializeField] private bool fadingIn, fadingOut, visible = false;
     private IEnumerator fadeCoroutine;
     
-
     [Header(("Prompts"))]
     public string ReloadPrompt;
     public string PourPowderPrompt;
@@ -31,8 +33,34 @@ public class UIReload : MonoBehaviour
     private void OnEnable()
     {
         reloadCanvas.alpha = invisibleOnEnable ? 0 : 1;
-        ChangeState(GunState.NOTREADY, ReloadingState.RELOADINGSTAGE2);
-        StartCoroutine(fadeInCoroutine());
+        visible = !invisibleOnEnable;
+        // ChangeReloadState(GunState.NOTREADY, ReloadingState.RELOADINGSTAGE2);
+        // StartCoroutine(fadeInCoroutine());
+    }
+
+    private void Update()
+    {
+        if (musket.gState == GunState.NOTREADY)
+        {
+            updatePrompt(ReloadPrompt);
+            showSliders(false);
+        }
+        
+        // UnityEngine.Debug.Log($"{musket.gState} : {musket.rState}");
+        if (musket.gState == GunState.NOTREADY && !visible && !fadingIn)
+        {
+            StartCoroutine(fadeInCoroutine());
+        }
+
+        if (musket.gState == GunState.RELOADING)
+        {
+            UpdateReloadState(musket.rState);
+        }
+
+        if (musket.gState == GunState.READYTOFIRE && !fadingOut && visible)
+        {
+            StartCoroutine(fadeOutCoroutine());
+        }
     }
 
     public void fadeIn()
@@ -54,13 +82,14 @@ public class UIReload : MonoBehaviour
         fadingIn = true;
         var currentTime = 0f;
         var increment = 1.0f / fadeTimeInMS;
-        while (currentTime <= fadeTimeInMS)
+        while (reloadCanvas.alpha < 1)
         {
             currentTime += increment;
             reloadCanvas.alpha = Mathf.Lerp(0, 1, currentTime);
-            yield return false;
+            yield return null;
         }
         fadingIn = false;
+        visible = true;
     }
     
     IEnumerator fadeOutCoroutine()
@@ -69,12 +98,13 @@ public class UIReload : MonoBehaviour
         fadingOut = true;
         var currentTime = 0f;
         var increment = 1.0f / fadeTimeInMS;
-        while (currentTime <= fadeTimeInMS)
+        while (reloadCanvas.alpha > 0f)
         {
             currentTime += increment;
             reloadCanvas.alpha = Mathf.Lerp(1, 0, currentTime);
-            yield return false;
+            yield return null;
         }
+        visible = false;
         fadingOut = false;
     }
 
@@ -83,26 +113,37 @@ public class UIReload : MonoBehaviour
         Prompt.text = prompt;
     }
 
-    void ChangeState(GunState gunState, ReloadingState reloadingState)
+    void UpdateReloadState(ReloadingState reloadingState)
     {
         switch (reloadingState)
         {
             case ReloadingState.RELOADINGSTAGE1:
                 updatePrompt(PourPowderPrompt);
-                powderSlider.SetActive(true);
-                sweetspotMarkers.SetActive(true);
+                showSliders(true);
+                print("Powder: " + musket.Powder);
+                updateSliderValue(musket.Powder);
                 break;
             case ReloadingState.RELOADINGSTAGE2:
                 updatePrompt(LoadBulletPrompt);
-                powderSlider.SetActive(false);
-                sweetspotMarkers.SetActive(false);
+                showSliders(false);
                 break;
             case ReloadingState.RELOADINGSTAGE3:
                 updatePrompt(TampPrompt);
+                showSliders(false);
                 break;
             default:
                 break;
         }
     }
-    
+
+    void showSliders(bool state)
+    {
+        powderSlider.gameObject.SetActive(state);
+        sweetspotMarkers.SetActive(state);
+    }
+
+    void updateSliderValue(float value)
+    {
+        powderSlider.value = value;
+    }
 }
