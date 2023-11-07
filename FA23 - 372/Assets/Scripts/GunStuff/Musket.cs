@@ -6,12 +6,14 @@ using UnityEngine.Windows;
 
 public class Musket : MonoBehaviour {
     [SerializeField] InputManager inputManager;
+    [SerializeField] PlayerMovement pm;
     [Header("Gun Stuff (No need to touch)")]
     [SerializeField] 
     public GunState gState;
     [SerializeField] 
     public ReloadingState rState;
-    [SerializeField] int bullets, tamps;
+    [SerializeField] 
+    public int bullets, tamps;
     [SerializeField] 
     public float Powder { get; private set; }
     [SerializeField] float maxPowder, minPowder;
@@ -52,8 +54,17 @@ public class Musket : MonoBehaviour {
             case GunState.RELOADING: //For the different stages of reloading
                 switch (rState) {
                     case ReloadingState.RELOADINGSTAGE1: //Putting powder in the gun (between 1 and 2 seconds of holding f)
-                        if (inputManager.Gun_Powder == InputButtonState.ButtonHeld) {
-                            Powder += Time.deltaTime /2; //For adding powder to the gun (change var based on movement)
+                        if (inputManager.Gun_Powder == InputButtonState.ButtonHeld) { //For adding powder to the gun
+                            if (pm.currentState == PlayerMovement.MovementState.still) {
+                                Powder += Time.deltaTime / 2; //if the player is still you can fill powder super fast
+                            }
+                            else if (pm.currentState == PlayerMovement.MovementState.moving) {
+                                Powder += Time.deltaTime / 4; //if moving powder fills at half speed
+                            }
+                            else {
+                                //powder doesn't fill at all
+                            }
+                             
                             TextUpdate();
                         }
                         else if (inputManager.Gun_Powder == InputButtonState.ButtonUp) { //When f is released check to see if there's enough powder in the gun
