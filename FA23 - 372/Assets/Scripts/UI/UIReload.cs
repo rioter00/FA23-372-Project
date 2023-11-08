@@ -16,9 +16,13 @@ public class UIReload : MonoBehaviour
     [SerializeField] private bool invisibleOnEnable;
     [SerializeField] private float fadeTimeInMS;
     [SerializeField] private Slider powderSlider;
+    [SerializeField] private Image sliderHandle;
     [SerializeField] private GameObject sweetspotMarkers;
     [SerializeField] private bool fadingIn, fadingOut, visible = false;
     private IEnumerator fadeCoroutine;
+
+    [Header("Slider Handles")] public Image DefaultHandle;
+    public Image AdequateHandle;
     
     [Header(("Prompts"))]
     public string ReloadPrompt;
