@@ -17,9 +17,10 @@ public class Musket : MonoBehaviour {
     public int bullets, tamps;
     [SerializeField] 
     public float Powder { get; private set; }
-    [SerializeField] float maxPowder, minPowder;
+    [SerializeField] float maxPowder, minPowder, sweetMin, sweetMax;
     private float movingPow = 3.5f, stillPow = 1.5f, camMovePow = 2f;
     private float lastCamRotation;
+    private int bulletsToAdd;
     [Header("UI Stuff")]
     [SerializeField] TextMeshProUGUI bulletsText;
     [SerializeField] TextMeshProUGUI powderText;
@@ -36,6 +37,8 @@ public class Musket : MonoBehaviour {
         TextUpdate();
         maxPowder = 0.66f;
         minPowder = 0.33f;
+        sweetMin = 0.45f;
+        sweetMax = 0.55f;
     }
 
     private void FixedUpdate() {
@@ -85,8 +88,14 @@ public class Musket : MonoBehaviour {
                             TextUpdate();
                         }
                         else if (inputManager.Gun_Powder == InputButtonState.ButtonUp) { //When f is released check to see if there's enough powder in the gun
-                            if(Powder <= maxPowder && Powder >= minPowder) {
+                            if (Powder <= sweetMax && Powder >= sweetMin) {
                                 rState = ReloadingState.RELOADINGSTAGE2;
+                                bulletsToAdd = 3;
+                                TextUpdate();
+                            }
+                            else if(Powder <= maxPowder && Powder >= minPowder) {
+                                rState = ReloadingState.RELOADINGSTAGE2;
+                                bulletsToAdd = 1;
                                 TextUpdate();
                             }
                             else {
@@ -98,7 +107,9 @@ public class Musket : MonoBehaviour {
                     case ReloadingState.RELOADINGSTAGE2: //Putting bullet in gun (one press of e)
                         if (inputManager.Gun_Bullet == InputButtonState.ButtonDown) {
                             bullets++; //Adds the bullet to the gun (can be changed later to add special reload cases if wanted)
-                            rState = ReloadingState.RELOADINGSTAGE3;
+                            if(bullets == bulletsToAdd) {
+                                rState = ReloadingState.RELOADINGSTAGE3;
+                            }
                             TextUpdate();
                         }
                         break;
@@ -126,8 +137,13 @@ public class Musket : MonoBehaviour {
     }
 
     private void Shoot() { // Shoots the gun and changes state to NOTREADY so the player needs to reload to fire again
-        gState = GunState.NOTREADY;
-        bullets--;
+        if(bullets == 1) {
+            gState = GunState.NOTREADY;
+            bullets--;
+        }
+        else {
+            bullets--;
+        }
         TextUpdate();
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation); //Spawns bullet at bulletSpawnPoint
         bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed; //Gives bullet velocity based on bulletSpeed
