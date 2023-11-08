@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8241538905864115754}
   - component: {fileID: 4166667402841926970}
-  - component: {fileID: 5177863740122959796}
+  - component: {fileID: 1114080196113814007}
   m_Layer: 5
   m_Name: Wave Kill UI
   m_TagString: Untagged
@@ -109,10 +109,10 @@ RectTransform:
   - {fileID: 1812307625612524177}
   m_Father: {fileID: 5582426268662048947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 676, y: 0.7000122}
-  m_SizeDelta: {x: -1472.4395, y: -6.8058}
+  m_AnchoredPosition: {x: -284, y: -38.799988}
+  m_SizeDelta: {x: 447.56055, y: 72.1942}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4166667402841926970
 CanvasRenderer:
@@ -122,7 +122,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2546664249125977113}
   m_CullTransparentMesh: 1
---- !u!114 &5177863740122959796
+--- !u!114 &1114080196113814007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,43 +131,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2546664249125977113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91f37eab656f84c1caab712637150a01, type: 3}
+  m_Script: {fileID: 11500000, guid: de2606e008cb3492a826919ccf2acb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killsCanvasGroup: {fileID: 3141712460232139809}
+  wavesAndKillsCanvasGroup: {fileID: 3141712460232139809}
+  wavesTMPText: {fileID: 6804670600921808767}
+  killsTMPText: {fileID: 5585459408803203319}
   invisibleOnEnable: 1
   fadeTimeInMS: 2000
-  LocationText: {fileID: 5585459408803203319}
   fadeCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2.013804
-      outSlope: 2.013804
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.49773985
-      value: 1.0023504
-      inSlope: -0.000015759184
-      outSlope: -0.000015759184
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 1
-      outWeight: 0.99096525
-    - serializedVersion: 3
-      time: 1.0015259
-      value: -0.0047187805
-      inSlope: -1.9990019
-      outSlope: -1.9990019
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -316,7 +290,7 @@ GameObject:
   - component: {fileID: 1812307625612524177}
   - component: {fileID: 3141712460232139809}
   m_Layer: 5
-  m_Name: Container
+  m_Name: Container - Canvas Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
