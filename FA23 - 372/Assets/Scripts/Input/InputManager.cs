@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public enum InputButtonState { ButtonNotHeld, ButtonDown, ButtonHeld, ButtonUp };
@@ -18,6 +19,9 @@ public class InputManager : MonoBehaviour
     [SerializeField] public InputButtonState Gun_Powder;
     [SerializeField] public InputButtonState Gun_Bullet;
     [SerializeField] public InputButtonState Gun_Tamp;
+    [SerializeField] public InputButtonState Dash;
+
+    [HideInInspector] public UnityEvent OnDashButtonDown;
 
     private void Awake()
     {
@@ -47,14 +51,24 @@ public class InputManager : MonoBehaviour
         Gun_Powder = UpdateButtonState(Gun_Powder, playerControls.gameplay.Gun_Powder);
         Gun_Bullet = UpdateButtonState(Gun_Bullet, playerControls.gameplay.Gun_Bullet);
         Gun_Tamp = UpdateButtonState(Gun_Tamp, playerControls.gameplay.Gun_Tamp);
+        Dash = UpdateButtonState(Dash, playerControls.gameplay.Dash);
+
+        if (Dash == InputButtonState.ButtonDown) OnDashButtonDown.Invoke();
 
         //wasd = move
         //mouse = look
         //left click = shoot
         //r = reload
-        //f = powder
+        //shift = powder
         //e = add bullet
-        //c = tamp
+        //q = tamp
+
+        //debug area
+        /*
+        if (Gun_Shoot == InputButtonState.ButtonDown)
+        {
+            Debug.Log("hi");
+        }*/
     }
 
     private InputButtonState UpdateButtonState(InputButtonState buttonState, InputAction input)
@@ -80,5 +94,14 @@ public class InputManager : MonoBehaviour
                 Debug.Log(input.name + " " + buttonState.ToString());
 
         return buttonState;
+    }
+
+    public void EnableInput()
+    {
+        playerControls.gameplay.Enable();
+    }
+    public void DisableInput()
+    {
+        playerControls.gameplay.Disable();
     }
 }

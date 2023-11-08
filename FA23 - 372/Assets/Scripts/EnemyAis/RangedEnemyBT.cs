@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class RangedEnemyBT : BehaviorTree.Tree
+public class RangedEnemyBT : BehaviorTree.EnemyTree
 {
-    public UnityEngine.Transform[] waypoints;
+    
 
     public float speed = 2f;
-    public float agroRange = 6f;
+    //public float agroRange = 6f;
 
     public float distanceFromPlayer = .1f;
     public float attackRange = 2f;
-    public float attackTime = 1f;
-    public int attackDamage = 10;
+    //public float attackTime = 1f;
+    //public int attackDamage = 10;
 
 
-    protected override Node SetupTree()
+    protected override EnemyNode SetupTree()
     {
-        Node root = new Selector(new List<Node> {
-            new Sequence(new List<Node>{
+        EnemyNode root = new Selector(new List<EnemyNode> {
+            new Sequence(new List<EnemyNode>{
                 new CheckInAttackRange(transform,attackRange),
                 new TaskAttack(transform, attackTime, attackDamage),
             }),
@@ -32,7 +32,7 @@ public class RangedEnemyBT : BehaviorTree.Tree
              }),
              
              */
-            new Sequence(new List<Node>{
+            new Sequence(new List<EnemyNode>{
                 new CheckEnemyInRange(transform,agroRange),
                /* new Sequence(new List<Node>{ 
                     new Flip(new List<Node>{
@@ -44,9 +44,10 @@ public class RangedEnemyBT : BehaviorTree.Tree
                     TaskPursue(),
                 }),
                 }),*/
-                new TaskPursue(transform,speed,distanceFromPlayer),
+                //new TaskPursue(transform,distanceFromPlayer, Agent),
+                new TaskPursue(transform, Agent),
             }),
-            new TaskPatrol(transform, waypoints,speed),
+            new TaskPatrol(transform, AIOverseer.overseer.waypoints, Agent),
         });
         return root;
     }

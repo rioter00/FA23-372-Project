@@ -1,5 +1,3 @@
-//The variables below are not static.
-
 inputManager.Movement ==> Vector2 for WASD keys
 inputManager.Mouse ==> Vector2 for mouse movement
 inputManager.Gun_Shoot ==> InputButtonState for shooting the gun (left click)

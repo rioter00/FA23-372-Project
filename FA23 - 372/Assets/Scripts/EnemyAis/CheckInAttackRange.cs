@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class CheckInAttackRange : Node
+public class CheckInAttackRange : EnemyNode
 {
     private Transform transform;
     //instantiate animator
