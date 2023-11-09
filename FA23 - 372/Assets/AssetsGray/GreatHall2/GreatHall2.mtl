@@ -1,0 +1,28 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl custom11(Clone)
+Kd 0.271 0.267 0.337
+map_Kd Textures/custom11(Clone).png
+
+newmtl custom10(Clone)
+Kd 0.549 0.549 0.635
+map_Kd Textures/custom10(Clone).png
+
+newmtl bricksDark(Clone)
+Kd 0.878 0.271 0.271
+
+newmtl custom14(Clone)
+Kd 0.757 0.369 0.243
+
+newmtl custom12(Clone)
+Kd 0.275 0.153 0.067
+
+newmtl bricks(Clone)
+Kd 1 0.392 0.306
+
+newmtl custom13(Clone)
+Kd 0.255 0.251 0.329
+
+newmtl stone(Clone)
+Kd 0.571 0.559 0.736
+
