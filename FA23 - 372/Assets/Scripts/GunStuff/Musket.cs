@@ -17,7 +17,7 @@ public class Musket : MonoBehaviour {
     public int bullets, tamps;
     [SerializeField] 
     public float Powder { get; private set; }
-    [SerializeField] float maxPowder, minPowder, sweetMin, sweetMax;
+    [SerializeField] public float maxPowder, minPowder, sweetMin, sweetMax;
     private float movingPow = 3.5f, stillPow = 1.5f, camMovePow = 2f;
     private float lastCamRotation;
     private int bulletsToAdd;
@@ -37,8 +37,8 @@ public class Musket : MonoBehaviour {
         TextUpdate();
         maxPowder = 0.66f;
         minPowder = 0.33f;
-        sweetMin = 0.45f;
-        sweetMax = 0.55f;
+        sweetMin = 0.47f;
+        sweetMax = 0.53f;
     }
 
     private void FixedUpdate() {
@@ -46,6 +46,14 @@ public class Musket : MonoBehaviour {
     }
 
     private void Update() {
+        if (pm.currentState == PlayerMovement.MovementState.moving || pm.currentState == PlayerMovement.MovementState.dashing) {
+            sweetMax = 0.51f;
+            sweetMin = 0.49f; //If moving tighten the sweet spot
+        }
+        else {
+            sweetMin = 0.47f;
+            sweetMax = 0.53f;
+        }
         switch (gState) {
             case GunState.READYTOFIRE: //When reload is complete and the gun has bullets
                 if (inputManager.Gun_Shoot == InputButtonState.ButtonDown) {
@@ -87,10 +95,10 @@ public class Musket : MonoBehaviour {
                              
                             TextUpdate();
                         }
-                        else if (inputManager.Gun_Powder == InputButtonState.ButtonUp) { //When f is released check to see if there's enough powder in the gun
+                        else if (inputManager.Gun_Powder == InputButtonState.ButtonUp) { //When shift is released check to see if there's enough powder in the gun
                             if (Powder <= sweetMax && Powder >= sweetMin) {
                                 rState = ReloadingState.RELOADINGSTAGE2;
-                                bulletsToAdd = 3;
+                                bulletsToAdd = 3; //If in sweet spot add 3 bullets instead of 1
                                 TextUpdate();
                             }
                             else if(Powder <= maxPowder && Powder >= minPowder) {
@@ -106,14 +114,12 @@ public class Musket : MonoBehaviour {
                         break;
                     case ReloadingState.RELOADINGSTAGE2: //Putting bullet in gun (one press of e)
                         if (inputManager.Gun_Bullet == InputButtonState.ButtonDown) {
-                            bullets++; //Adds the bullet to the gun (can be changed later to add special reload cases if wanted)
-                            if(bullets == bulletsToAdd) {
-                                rState = ReloadingState.RELOADINGSTAGE3;
-                            }
+                            bullets += bulletsToAdd; //Adds the bullet to the gun
+                            rState = ReloadingState.RELOADINGSTAGE3;
                             TextUpdate();
                         }
                         break;
-                    case ReloadingState.RELOADINGSTAGE3: //Tamping contents down in gun (three presses of c)
+                    case ReloadingState.RELOADINGSTAGE3: //Tamping contents down in gun (three presses of q)
                         if(tamps < 3) {
                             if (inputManager.Gun_Tamp == InputButtonState.ButtonDown) {
                                 tamps++;
@@ -137,16 +143,14 @@ public class Musket : MonoBehaviour {
     }
 
     private void Shoot() { // Shoots the gun and changes state to NOTREADY so the player needs to reload to fire again
-        if(bullets == 1) {
-            gState = GunState.NOTREADY;
-            bullets--;
-        }
-        else {
-            bullets--;
-        }
+        gState = GunState.NOTREADY;
+        bullets--;
         TextUpdate();
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation); //Spawns bullet at bulletSpawnPoint
         bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed; //Gives bullet velocity based on bulletSpeed
+        if (bullets > 0) {
+            Invoke("Shoot", 0.15f);
+        }
     }
 
     private void TextUpdate() { //Updates all the UI for debugging in the scene
