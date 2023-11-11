@@ -16,8 +16,10 @@ public class UIReload : MonoBehaviour
     [SerializeField] private bool invisibleOnEnable;
     [SerializeField] private float fadeTimeInMS;
     [SerializeField] private Slider powderSlider;
-    [SerializeField] private Image sliderHandle;
-    [SerializeField] private GameObject sweetspotMarkers;
+    [SerializeField] private RectTransform powderMarker;
+    [SerializeField] private Image sliderHandleImage;
+    [SerializeField] private GameObject sweetspotMarkersGroup;
+    [SerializeField] private Slider sweetspotMinSlider, sweetspotMaxSlider, powderMinSlider, powderMaxSlider;
     [SerializeField] private bool fadingIn, fadingOut, visible = false;
     private IEnumerator fadeCoroutine;
 
@@ -33,17 +35,29 @@ public class UIReload : MonoBehaviour
 
     public TMP_Text Prompt;
     
-    
     private void OnEnable()
     {
+        setSweetSpotBounds();
         reloadCanvas.alpha = invisibleOnEnable ? 0 : 1;
         visible = !invisibleOnEnable;
         // ChangeReloadState(GunState.NOTREADY, ReloadingState.RELOADINGSTAGE2);
         // StartCoroutine(fadeInCoroutine());
     }
 
+    void setSweetSpotBounds()
+    {
+        sweetspotMinSlider.value = musket.sweetMin;
+        sweetspotMaxSlider.value = musket.sweetMax;
+        //
+        powderMinSlider.value = musket.minPowder;
+        powderMaxSlider.value = musket.maxPowder;
+    }
+    
     private void Update()
     {
+        // print("Powder Handle Position: " + powderSlider.handleRect.position);
+        
+        
         if (musket.gState == GunState.NOTREADY)
         {
             updatePrompt(ReloadPrompt);
@@ -55,12 +69,12 @@ public class UIReload : MonoBehaviour
         {
             StartCoroutine(fadeInCoroutine());
         }
-
+        
         if (musket.gState == GunState.RELOADING)
         {
             UpdateReloadState(musket.rState);
         }
-
+        
         if (musket.gState == GunState.READYTOFIRE && !fadingOut && visible)
         {
             StartCoroutine(fadeOutCoroutine());
@@ -125,7 +139,9 @@ public class UIReload : MonoBehaviour
                 updatePrompt(PourPowderPrompt);
                 showSliders(true);
                 print("Powder: " + musket.Powder);
+                setSweetSpotBounds();
                 updateSliderValue(musket.Powder);
+                
                 break;
             case ReloadingState.RELOADINGSTAGE2:
                 updatePrompt(LoadBulletPrompt);
@@ -143,7 +159,10 @@ public class UIReload : MonoBehaviour
     void showSliders(bool state)
     {
         powderSlider.gameObject.SetActive(state);
-        sweetspotMarkers.SetActive(state);
+        sweetspotMinSlider.gameObject.SetActive(state);
+        sweetspotMaxSlider.gameObject.SetActive(state);
+        powderMinSlider.gameObject.SetActive(state);
+        powderMaxSlider.gameObject.SetActive(state);
     }
 
     void updateSliderValue(float value)
