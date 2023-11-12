@@ -5,16 +5,20 @@ using UnityEngine;
 public class Bullet : MonoBehaviour{
     [SerializeField] float lifeTime = 5f;
 
-    private void Awake() {
-        Destroy(gameObject, lifeTime); //Desroys bullet after 5 seconds
+    private void OnEnable() {
+        Invoke("Disable", lifeTime); //Hides bullet after 5 seconds
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Ground")) { //Destroys bullet if it touches anything with the Ground tag
-            Destroy(gameObject);
+        if (other.CompareTag("Ground")) { //Hides bullet if it touches anything with the Ground tag
+            Disable();
         }
         else if (other.CompareTag("Enemy")) { //Checks to see if it hit an enemy then damages it acordingly
             other.GetComponentInParent<EnemyHealth>().TakeDamage(1);
         }
+    }
+
+    private void Disable() {
+        gameObject.SetActive(false);
     }
 }
