@@ -18,7 +18,7 @@ public class Musket : MonoBehaviour {
     [SerializeField] 
     public float Powder { get; private set; }
     [SerializeField] public float maxPowder, minPowder, sweetMin, sweetMax;
-    private float movingPow = 3.5f, stillPow = 1.5f, camMovePow = 2f;
+    private float movingPow = 3, stillPow = 1, camMovePow = 2f;
     private float lastCamRotation;
     private int bulletsToAdd;
     [Header("UI Stuff")]
@@ -29,7 +29,6 @@ public class Musket : MonoBehaviour {
     [SerializeField] TextMeshProUGUI reloadingStateText; //Debugging text
     [Header("Bullet Stuff")]
     [SerializeField] Transform bulletSpawnPoint;
-    [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletSpeed;
     private void Start() {
         gState = GunState.READYTOFIRE;
@@ -136,9 +135,6 @@ public class Musket : MonoBehaviour {
                 }
                 break;
         }
-        /*if(gState == GunState.READYTOFIRE && Input.GetKeyDown(KeyCode.Mouse0)) {
-            Shoot();
-        }*/
         
     }
 
@@ -146,8 +142,12 @@ public class Musket : MonoBehaviour {
         gState = GunState.NOTREADY;
         bullets--;
         TextUpdate();
-        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation); //Spawns bullet at bulletSpawnPoint
-        bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed; //Gives bullet velocity based on bulletSpeed
+        GameObject bullet = BulletPool.instance.GetPooledObjects();
+        if (bullet != null) {
+            bullet.SetActive(true);
+            bullet.transform.position = bulletSpawnPoint.position;
+            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed; //Gives bullet velocity based on bulletSpeed
+        }
         if (bullets > 0) {
             Invoke("Shoot", 0.15f);
         }
