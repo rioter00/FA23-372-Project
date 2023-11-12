@@ -19,5 +19,17 @@ public struct AudioAsset
     public AudioCategory Category;
     public bool PlayAsMono;
     public bool RandomizePitch;
-    public float RandomPitchPercent;
+    public float PitchVarianceFloat;
+}
+
+[System.Serializable]
+public struct AudioAssetArray
+{
+    public AudioClip[] AudioClips;
+    public bool PlayOnEnable;
+    public float Loudness;
+    public AudioCategory Category;
+    public bool PlayAsMono;
+    public bool RandomizePitch;
+    public float PitchVarianceFloat;
 }
