@@ -1,8 +1,0 @@
-# Created by Kenney (www.kenney.nl)
-
-newmtl bricksDark(Clone)
-Kd 0.275 0.157 0.129
-
-newmtl bricks(Clone)
-Kd 0.38 0.541 0.239
-
