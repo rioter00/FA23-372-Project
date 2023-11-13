@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 using Random = UnityEngine.Random;
 
 public class MusketAudio : MonoBehaviour
@@ -10,7 +11,8 @@ public class MusketAudio : MonoBehaviour
     
     [SerializeField] private Musket musket;
     [SerializeField] private AudioSource[] musketAudioSources = new AudioSource[4];
-
+    [SerializeField] private AudioMixerGroup weaponMixerGroup;
+    
     [SerializeField] private AudioAsset musketPowder, musketBulletLoad;
     [SerializeField] private AudioAssetArray musketTampClips;
     [SerializeField] private AudioAsset musketShoot;
@@ -21,6 +23,7 @@ public class MusketAudio : MonoBehaviour
     private bool powderIsPlaying = false;
     private int prevTampCount = 0;
     private bool bulletLoaded = false;
+    
 
     AudioSource getNewAudioSource()
     {
@@ -32,6 +35,7 @@ public class MusketAudio : MonoBehaviour
         for (var i = 0; i < musketAudioSources.Length; i++)
         {
             musketAudioSources[i] = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+            musketAudioSources[i].outputAudioMixerGroup = weaponMixerGroup;
         }
         // playBulletLoad();
         // playMusketShoot();
@@ -56,6 +60,17 @@ public class MusketAudio : MonoBehaviour
         if (musket.gState == previousGunState) return;
         // musketAudioSource.Stop();
         prevTampCount = 0;
+        
+        if (musket.gState == GunState.NOTREADY && previousGunState == GunState.RELOADING)
+        {
+            foreach (var musketAudioSource in musketAudioSources)
+            {
+                if (musketAudioSource.isPlaying)
+                {
+                    musketAudioSource.Stop();
+                }
+            }
+        }
         
         if (musket.gState == GunState.NOTREADY && previousGunState == GunState.READYTOFIRE)
         {
