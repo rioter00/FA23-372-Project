@@ -138,7 +138,7 @@ public class UIReload : MonoBehaviour
             case ReloadingState.RELOADINGSTAGE1:
                 updatePrompt(PourPowderPrompt);
                 showSliders(true);
-                print("Powder: " + musket.Powder);
+                // print("Powder: " + musket.Powder);
                 setSweetSpotBounds();
                 updateSliderValue(musket.Powder);
                 
