@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Fire_Material
-  m_Shader: {fileID: -6465566751694194690, guid: 3b898c23b36000349b5a23be2a92ca96, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 330bd307df86bf44788dce56b9582ead, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
