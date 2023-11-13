@@ -38,6 +38,7 @@ public class Musket : MonoBehaviour {
         minPowder = 0.33f;
         sweetMin = 0.47f;
         sweetMax = 0.53f;
+        GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
     }
 
     private void FixedUpdate() {
@@ -66,6 +67,7 @@ public class Musket : MonoBehaviour {
                     tamps = 0;
                     Powder = 0f;
                     TextUpdate();
+                    GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                 }
                 break;
             case GunState.RELOADING: //For the different stages of reloading
@@ -108,6 +110,7 @@ public class Musket : MonoBehaviour {
                             else {
                                 gState = GunState.NOTREADY; //if wrong ammount of poweder is in the gun change gState to NOTREADY
                                 TextUpdate();
+                                GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                             }
                         }
                         break;
@@ -130,6 +133,7 @@ public class Musket : MonoBehaviour {
                             tamps = 0;
                             Powder = 0f;
                             TextUpdate();
+                            GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                         }
                         break;
                 }
@@ -140,6 +144,7 @@ public class Musket : MonoBehaviour {
 
     private void Shoot() { // Shoots the gun and changes state to NOTREADY so the player needs to reload to fire again
         gState = GunState.NOTREADY;
+        GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
         bullets--;
         TextUpdate();
         GameObject bullet = BulletPool.instance.GetPooledObjects();
