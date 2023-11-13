@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - SpawnLocation
+  - Waypoint
   layers:
   - Default
   - TransparentFX

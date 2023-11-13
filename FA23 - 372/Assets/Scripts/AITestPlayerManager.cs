@@ -15,13 +15,13 @@ public class PlayerManager : MonoBehaviour
     {
         healthPoints = defaultHealthPoints;
         meshRenderer = GetComponent<MeshRenderer>();
-        origColor = meshRenderer.material.color;
+        //origColor = meshRenderer.material.color;
     }
 
     public bool TakeHit(int damage) {
         damagePerHit = damage;
         FlashStart();
-        gameObject.GetComponent<Renderer>().material.color = Color.red;
+        //gameObject.GetComponent<Renderer>().material.color = Color.red;
         
         healthPoints -= damagePerHit;
         //gameObject.GetComponent<Renderer>().material.color = Color.black;
@@ -37,12 +37,12 @@ public class PlayerManager : MonoBehaviour
     }
 
     void FlashStart() {
-        meshRenderer.material.color = Color.red;
+        //meshRenderer.material.color = Color.red;
         Invoke("FlashStop", flashTime);
     }
 
     void FlashStop() {
-        meshRenderer.material.color = origColor;
+        //meshRenderer.material.color = origColor;
     }    
     // Update is called once per frame
     void Update()

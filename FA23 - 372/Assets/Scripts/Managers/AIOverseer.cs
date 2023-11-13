@@ -19,6 +19,8 @@ public class AIOverseer : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] private float alertThreshold = 0.5f;
 
+    public List<Transform> waypoints = new List<Transform>();
+
 
     private void Awake()
     {
@@ -29,6 +31,8 @@ public class AIOverseer : MonoBehaviour
         else Destroy(this);
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject[] waypointObjects = GameObject.FindGameObjectsWithTag("Waypoint");
+        for (int i = 0; i < waypointObjects.Length; i++) waypoints.Add(waypointObjects[i].transform);
     }
 
     private void Start()
