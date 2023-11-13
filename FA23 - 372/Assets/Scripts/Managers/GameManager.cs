@@ -26,17 +26,16 @@ public class GameManager : MonoBehaviour
         SpawnManager.enabledSpawnManager.SpawnWave();
     }
 
-    // REVISIT CODE BELOW ONCE I FIGURE OUT HOW WEAPONSTATE IS BEING STORED
 
-    // public void OnPlayerWeaponStateChange ( WeaponState(?) state) {
-    //      switch (state) {
-    //          case 0:
-    //              AIOverseer.overseer.SignalDodgeToFightingAgents();
-    //              break;
-    //          case 1:
-    //              AIOverseer.overseer.SignalRushToFightingAgents();
-    //              break;
-    //      }
-    // }
+     public void OnPlayerWeaponStateChange (GunState state) {
+          switch (state) {
+              case GunState.READYTOFIRE:
+                  AIOverseer.overseer.SignalDodgeToFightingAgents();
+                  break;
+              default:
+                  AIOverseer.overseer.SignalRushToFightingAgents();
+                  break;
+          }
+     }
 
 }
