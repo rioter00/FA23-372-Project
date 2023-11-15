@@ -13,6 +13,7 @@ namespace BehaviorTree {
         public int attackDamage = 10;
         public float agroRange = 6f;
         public bool atHint;
+        //public float seeAngle = 100f;
 
         protected void Start()
         {

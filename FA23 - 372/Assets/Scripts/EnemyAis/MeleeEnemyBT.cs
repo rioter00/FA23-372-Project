@@ -11,6 +11,10 @@ public class MeleeEnemyBT : BehaviorTree.EnemyTree
     {
         
         EnemyNode root = new Selector(new List<EnemyNode> {
+            new Sequence(new List<EnemyNode>{ 
+                new CheckHealth(gameObject),
+                new TaskDie(gameObject),
+            }),
             new Sequence(new List<EnemyNode>{
                 new CheckInAttackRange(transform, Agent.stoppingDistance),
                 new TaskAttack(transform, attackTime,attackDamage),
@@ -39,10 +43,10 @@ public class MeleeEnemyBT : BehaviorTree.EnemyTree
                 new TaskPursue(transform,Agent),
             }),
             new Sequence(new List<EnemyNode>{
-                //new CheckTimePassed(transform, Agent),
+                //new CheckTimePassed(transform, Agent, gameObject),
                 new TaskPatrol(transform, AIOverseer.overseer.waypoints,Agent),
             }),
-            //new GoToHint(Agent),
+            //new GoToHint(Agent, gameObject),
         }); 
         return root;
     }
