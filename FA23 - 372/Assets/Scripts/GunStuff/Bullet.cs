@@ -16,6 +16,9 @@ public class Bullet : MonoBehaviour{
         else if (other.CompareTag("Enemy")) { //Checks to see if it hit an enemy then damages it acordingly
             other.GetComponentInParent<EnemyHealth>().TakeDamage(1);
         }
+        else if(other.CompareTag("Dummy")){
+            other.GetComponentInParent<DummyHealth>().TakeDamage(1);
+        }
     }
 
     private void Disable() {
