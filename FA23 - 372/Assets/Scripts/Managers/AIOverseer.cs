@@ -37,15 +37,27 @@ public class AIOverseer : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.enabledGameManager.silenceManagers) return;
         hintLocation = GenerateNewHintLocation();
     }
 
-    public void ReportAgentAddition(GameObject agentToAdd) { activeAgents.Add(agentToAdd); }
-    public void ReportAgentSubtraction(GameObject agentToSubtract) { activeAgents.Remove(agentToSubtract);
+    public void ReportAgentAddition(GameObject agentToAdd) {
+        if (GameManager.enabledGameManager.silenceManagers) return;
+        activeAgents.Add(agentToAdd); 
+    }
+    public void ReportAgentSubtraction(GameObject agentToSubtract) {
+        if (GameManager.enabledGameManager.silenceManagers) return;
+        activeAgents.Remove(agentToSubtract);
         if (activeAgents.Count < 1) SignalWaveSpawn();
     }
-    public void ReportFightingAgentAddition(GameObject agentToAdd) { fightingAgents.Add(agentToAdd); }
-    public void ReportFightingAgentSubtraction(GameObject agentToSubtract) { fightingAgents.Remove(agentToSubtract); }
+    public void ReportFightingAgentAddition(GameObject agentToAdd) {
+        if (GameManager.enabledGameManager.silenceManagers) return;
+        fightingAgents.Add(agentToAdd); 
+    }
+    public void ReportFightingAgentSubtraction(GameObject agentToSubtract) {
+        if (GameManager.enabledGameManager.silenceManagers) return;
+        fightingAgents.Remove(agentToSubtract); 
+    }
 
     private Vector3 GenerateNewHintLocation()
     {
@@ -57,6 +69,7 @@ public class AIOverseer : MonoBehaviour
 
     public void GiveHintToAgent(NavMeshAgent agent)
     {
+        if (GameManager.enabledGameManager.silenceManagers) return;
         hintLocation = GenerateNewHintLocation();
         agent.destination = hintLocation;
     }
@@ -78,12 +91,14 @@ public class AIOverseer : MonoBehaviour
 
     public void SignalDodgeToFightingAgents()
     {
-        foreach(GameObject g in fightingAgents) if(Random.Range(alertMin, alertMax) > alertThreshold) { g.GetComponent<IAgent>().SetBehaviorState(0); }   //placeholder parameter    
+        if (GameManager.enabledGameManager.silenceManagers) return;
+        foreach (GameObject g in fightingAgents) if(Random.Range(alertMin, alertMax) > alertThreshold) { g.GetComponent<IAgent>().SetBehaviorState(0); }   //placeholder parameter    
     }
 
     public void SignalRushToFightingAgents()
     {
-        foreach(GameObject g in fightingAgents) if(Random.Range(alertMin, alertMax) > alertThreshold) { g.GetComponent<IAgent>().SetBehaviorState(1); }   //placeholder parameter
+        if (GameManager.enabledGameManager.silenceManagers) return;
+        foreach (GameObject g in fightingAgents) if(Random.Range(alertMin, alertMax) > alertThreshold) { g.GetComponent<IAgent>().SetBehaviorState(1); }   //placeholder parameter
     }
 
 }

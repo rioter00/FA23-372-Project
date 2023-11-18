@@ -49,16 +49,19 @@ public class SpawnManager : MonoBehaviour
 
     public void AddOpenSpawnLocation(SpawnLocation newLocation)
     {
+        if (GameManager.enabledGameManager.silenceManagers) return;
         openSpawnLocations.Add(newLocation);
     }
 
     private void RemoveOpenSpawnLocation(SpawnLocation location)
     {
+        if (GameManager.enabledGameManager.silenceManagers) return;
         openSpawnLocations.Remove(location);
     }
 
     public void SpawnWave()
     {
+        if (GameManager.enabledGameManager.silenceManagers) return;
         if (!UseNewQuotaSystem) OldQuotaSystem();
         else NewQuotaSystem();
     }
