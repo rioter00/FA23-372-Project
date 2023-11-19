@@ -467,12 +467,12 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -525,7 +525,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.541, y: 1.082, z: 0.945}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4414125082764396525}
   - {fileID: 2339522064782127780}
@@ -570,8 +570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  movementSpeed: 12
-  mouseSensitivity: 0.35
+  movementSpeed: 5
+  mouseSensitivity: 0.23
   movementDampTime: 0.3
   cameraDampTime: 0.03
   cursorLock: 1
@@ -743,7 +743,7 @@ Transform:
   m_GameObject: {fileID: 5878918235424245208}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.446, y: -0.411, z: 0.161}
+  m_LocalPosition: {x: 0.446, y: -0.411, z: 0.422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1305,6 +1305,14 @@ PrefabInstance:
       propertyPath: musket
       value: 
       objectReference: {fileID: 1818554441420337883}
+    - target: {fileID: 1925158678190722279, guid: 196bad43dd45446e298b98dff1d6f673, type: 3}
+      propertyPath: fadeTimeInMS
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925158678190722279, guid: 196bad43dd45446e298b98dff1d6f673, type: 3}
+      propertyPath: invisibleOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2775519182704898824, guid: 196bad43dd45446e298b98dff1d6f673, type: 3}
       propertyPath: m_Name
       value: Reload UI
