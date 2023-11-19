@@ -21,19 +21,12 @@ public class Musket : MonoBehaviour {
     private float movingPow = 3, stillPow = 1, camMovePow = 2f;
     private float lastCamRotation;
     private int bulletsToAdd;
-    [Header("UI Stuff")]
-    [SerializeField] TextMeshProUGUI bulletsText;
-    [SerializeField] TextMeshProUGUI powderText;
-    [SerializeField] TextMeshProUGUI tampsText;
-    [SerializeField] TextMeshProUGUI gunStateText;
-    [SerializeField] TextMeshProUGUI reloadingStateText; //Debugging text
     [Header("Bullet Stuff")]
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] float bulletSpeed;
     private void Start() {
         gState = GunState.READYTOFIRE;
         bullets = 1;
-        TextUpdate();
         maxPowder = 0.66f;
         minPowder = 0.33f;
         sweetMin = 0.47f;
@@ -66,7 +59,6 @@ public class Musket : MonoBehaviour {
                     rState = ReloadingState.RELOADINGSTAGE1;
                     tamps = 0;
                     Powder = 0f;
-                    TextUpdate();
                     //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                 }
                 break;
@@ -93,23 +85,18 @@ public class Musket : MonoBehaviour {
                             else { //dashing
                                 //powder doesn't fill at all
                             }
-                             
-                            TextUpdate();
                         }
                         else if (inputManager.Gun_Powder == InputButtonState.ButtonUp) { //When shift is released check to see if there's enough powder in the gun
                             if (Powder <= sweetMax && Powder >= sweetMin) {
                                 rState = ReloadingState.RELOADINGSTAGE2;
                                 bulletsToAdd = 3; //If in sweet spot add 3 bullets instead of 1
-                                TextUpdate();
                             }
                             else if(Powder <= maxPowder && Powder >= minPowder) {
                                 rState = ReloadingState.RELOADINGSTAGE2;
                                 bulletsToAdd = 1;
-                                TextUpdate();
                             }
                             else {
                                 gState = GunState.NOTREADY; //if wrong ammount of poweder is in the gun change gState to NOTREADY
-                                TextUpdate();
                                 //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                             }
                         }
@@ -118,21 +105,18 @@ public class Musket : MonoBehaviour {
                         if (inputManager.Gun_Bullet == InputButtonState.ButtonDown) {
                             bullets += bulletsToAdd; //Adds the bullet to the gun
                             rState = ReloadingState.RELOADINGSTAGE3;
-                            TextUpdate();
                         }
                         break;
                     case ReloadingState.RELOADINGSTAGE3: //Tamping contents down in gun (three presses of q)
                         if(tamps < 3) {
                             if (inputManager.Gun_Tamp == InputButtonState.ButtonDown) {
                                 tamps++;
-                                TextUpdate();
                             }
                         }
                         else {
                             gState = GunState.READYTOFIRE;
                             tamps = 0;
                             Powder = 0f;
-                            TextUpdate();
                             //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                         }
                         break;
@@ -146,7 +130,6 @@ public class Musket : MonoBehaviour {
         gState = GunState.NOTREADY;
         //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
         bullets--;
-        TextUpdate();
         GameObject bullet = BulletPool.instance.GetPooledObjects();
         if (bullet != null) {
             bullet.SetActive(true);
@@ -156,14 +139,6 @@ public class Musket : MonoBehaviour {
         if (bullets > 0) {
             Invoke("Shoot", 0.15f);
         }
-    }
-
-    private void TextUpdate() { //Updates all the UI for debugging in the scene
-        tampsText.text = "Tamps: " + tamps;
-        powderText.text = "Powder: " + Mathf.Round(Powder*100)/100;
-        bulletsText.text = "Bullets: " + bullets;
-        reloadingStateText.text = rState.ToString();
-        gunStateText.text = gState.ToString();
     }
 }
 public enum GunState { //Keeps track of the state of the gun for further use with Enemy AI or other things
