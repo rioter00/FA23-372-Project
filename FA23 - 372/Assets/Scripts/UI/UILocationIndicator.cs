@@ -28,7 +28,7 @@ public class UILocationIndicator : MonoBehaviour
     {
         killsCanvasGroup.alpha = invisibleOnEnable ? 0 : 1;
         // StartCoroutine(fadeInCoroutine());
-        fadeIn("Dungeon", 2000f);
+        fadeIn("Shooting Range", 2000f);
     }
 
     public void fadeIn()
