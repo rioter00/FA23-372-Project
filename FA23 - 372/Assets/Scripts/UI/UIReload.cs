@@ -18,7 +18,6 @@ public class UIReload : MonoBehaviour
     [SerializeField] private Slider powderSlider;
     [SerializeField] private RectTransform powderMarker;
     [SerializeField] private Image sliderHandleImage;
-    [SerializeField] private GameObject sweetspotMarkersGroup;
     [SerializeField] private Slider sweetspotMinSlider, sweetspotMaxSlider, powderMinSlider, powderMaxSlider;
     [SerializeField] private bool fadingIn, fadingOut, visible = false;
     private IEnumerator fadeCoroutine;
@@ -40,8 +39,6 @@ public class UIReload : MonoBehaviour
         setSweetSpotBounds();
         reloadCanvas.alpha = invisibleOnEnable ? 0 : 1;
         visible = !invisibleOnEnable;
-        // ChangeReloadState(GunState.NOTREADY, ReloadingState.RELOADINGSTAGE2);
-        // StartCoroutine(fadeInCoroutine());
     }
 
     void setSweetSpotBounds()
@@ -55,19 +52,15 @@ public class UIReload : MonoBehaviour
     
     private void Update()
     {
-        // print("Powder Handle Position: " + powderSlider.handleRect.position);
-        
-        
         if (musket.gState == GunState.NOTREADY)
         {
             updatePrompt(ReloadPrompt);
             showSliders(false);
         }
         
-        // UnityEngine.Debug.Log($"{musket.gState} : {musket.rState}");
         if (musket.gState == GunState.NOTREADY && !visible && !fadingIn)
         {
-            StartCoroutine(fadeInCoroutine());
+            fadeIn();
         }
         
         if (musket.gState == GunState.RELOADING)
@@ -77,18 +70,18 @@ public class UIReload : MonoBehaviour
         
         if (musket.gState == GunState.READYTOFIRE && !fadingOut && visible)
         {
-            StartCoroutine(fadeOutCoroutine());
+            fadeOut();
         }
     }
 
-    public void fadeIn()
+    private void fadeIn()
     {
         if (fadingIn) return;
         StopAllCoroutines();
         StartCoroutine(fadeInCoroutine());
     }
 
-    public void fadeOut()
+    private void fadeOut()
     {
         if (fadingOut) return;
         StartCoroutine(fadeOutCoroutine());
