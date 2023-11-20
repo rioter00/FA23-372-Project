@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - SpawnLocation
   - Waypoint
+  - Dummy
   layers:
   - Default
   - TransparentFX
