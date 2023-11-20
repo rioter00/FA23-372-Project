@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace BehaviorTree
 {
-    public class Sequence : Node
+    public class Sequence : EnemyNode
     {
         //constructors
         public Sequence() : base() { }
-        public Sequence(List<Node> children) : base(children) { }
+        public Sequence(List<EnemyNode> children) : base(children) { }
 
         public override NodeState Evaluate() {
             bool anyChildIsRunning = false;
 
             //checks all children to see if they are all successful
-            foreach (Node node in children) {
+            foreach (EnemyNode node in children) {
                 switch (node.Evaluate()) {
                     //if one child is failing return failure
                     case NodeState.FAILURE:

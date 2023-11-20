@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
-public class TaskAttack : Node
+public class TaskAttack : EnemyNode
 {
     private Transform lastTarget;
     private PlayerManager playerManager;
@@ -26,6 +26,7 @@ public class TaskAttack : Node
 
         attackCounter += Time.deltaTime;
         if (attackCounter >= attackTime) {
+            Debug.Log("ATTACKING");
             bool enemyIsDead = playerManager.TakeHit(damage);
 
             if (enemyIsDead)

@@ -1,0 +1,8 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl brownDark(Clone)
+Kd 0.275 0.153 0.067
+
+newmtl greyLight(Clone)
+Kd 0.769 0.761 0.863
+

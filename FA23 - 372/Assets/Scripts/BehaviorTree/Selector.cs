@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace BehaviorTree
 {
-    public class Selector : Node
+    public class Selector : EnemyNode
     {
         public Selector() : base() { }
-        public Selector(List<Node> children) : base(children) { }
+        public Selector(List<EnemyNode> children) : base(children) { }
 
         public override NodeState Evaluate() { 
             //go through all of the children
-            foreach (Node node in children)
+            foreach (EnemyNode node in children)
             {
                 switch (node.Evaluate()) {
                     //if the node fails then continue to the next node

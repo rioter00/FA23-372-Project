@@ -1,0 +1,14 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl brown(Clone)
+Kd 0.4509804 0.4431373 0.5372549
+
+newmtl white(Clone)
+Kd 0.4509804 0.4431373 0.5372549
+
+newmtl greyLight(Clone)
+Kd 0.4509804 0.4431373 0.5372549
+
+newmtl brownDark(Clone)
+Kd 0.4509804 0.4431373 0.5372549
+
