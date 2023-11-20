@@ -19,7 +19,7 @@ public class CheckTimePassed : EnemyNode
         this.transform = transform;
         this.agent = Agent;
         
-        
+        this.enemy = enemy;
     }
 
     public override NodeState Evaluate()
@@ -33,36 +33,5 @@ public class CheckTimePassed : EnemyNode
         else { 
             return NodeState.FAILURE;
         }
-        /*//Debug.Log(wentToHint);
-        if (Vector3.Distance(transform.position, agent.destination) < agent.stoppingDistance)
-        {
-            state = NodeState.FAILURE;
-            return state;
-        }
-
-        stopTime -= Time.deltaTime;
-        if (stopTime <= 0.0f) { 
-            state = NodeState.SUCCESS;
-            return state;
-        }
-        /*while (stopTime >= 0.0f) {
-            Debug.Log("Reached Dest");
-            
-            wentToHint = true;
-        }
-        /*else if (stopTime >= 0.0f)
-        {
-            Debug.Log("Reached Dest");
-            stopTime -= Time.deltaTime;
-            wentToHint = true;
-            state = NodeState.FAILURE;
-            return state;
-        }
-  
-        else
-        {
-            state = NodeState.FAILURE;
-            return state;
-        }*/
     }
 }

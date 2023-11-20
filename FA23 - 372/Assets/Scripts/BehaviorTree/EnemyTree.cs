@@ -12,7 +12,6 @@ namespace BehaviorTree {
         public float attackTime = 1f;
         public int attackDamage = 10;
         public float agroRange = 6f;
-        public bool atHint;
         //public float seeAngle = 100f;
 
         protected void Start()
@@ -20,7 +19,6 @@ namespace BehaviorTree {
             root = SetupTree();
             Agent = GetComponent<NavMeshAgent>();
             AttackRange = Agent.stoppingDistance;
-            //atHint = GetComponent<WentToHint>().AtHint;
             
         }
 

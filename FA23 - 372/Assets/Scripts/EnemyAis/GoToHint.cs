@@ -8,7 +8,7 @@ public class GoToHint : EnemyNode
 {
     NavMeshAgent Agent;
     Vector3 Hintdestination;
-    private float waitTime = 15f;
+    private float waitTime = 5f;
     private float waitCounter = 0f;
     private bool waiting = false;
     GameObject enemy;
@@ -28,7 +28,7 @@ public class GoToHint : EnemyNode
             if (waitCounter >= waitTime)
             {
                 waiting = false;
-                
+                enemy.GetComponent<VisitedHint>().visitedHint = true;
                 //this is where you set the animator to walking
             }
         }
@@ -38,7 +38,7 @@ public class GoToHint : EnemyNode
             {
                 //Debug.Log(Agent.destination);
                 //.destination = Hintdestination;
-                enemy.GetComponent<VisitedHint>().visitedHint = true;
+                
                 waitCounter = 0f;
                 waiting = true;
             }
