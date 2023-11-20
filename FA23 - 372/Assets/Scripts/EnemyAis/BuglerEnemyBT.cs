@@ -2,16 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
+using UnityEngine.AI;
 
-public class RangedEnemyBT : BehaviorTree.EnemyTree
+public class BuglerEnemyBT : BehaviorTree.EnemyTree
 {
     private float time;
-    [SerializeField]
-    private Transform arrowShootPoint;
-    [SerializeField]
-    private GameObject arrowPrefab;
-    [SerializeField]
-    private float arrowSpeed;
     protected override EnemyNode SetupTree()
     {
 
@@ -22,7 +17,7 @@ public class RangedEnemyBT : BehaviorTree.EnemyTree
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckInAttackRange(transform, Agent.stoppingDistance),
-                new TaskRangedAttack(transform, attackTime,attackDamage, arrowShootPoint, arrowPrefab, arrowSpeed),
+                new TaskAttack(transform, attackTime,attackDamage),
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckEnemyInRange(transform,agroRange),

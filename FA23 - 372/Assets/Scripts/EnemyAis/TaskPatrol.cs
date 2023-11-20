@@ -58,7 +58,7 @@ public class TaskPatrol : EnemyNode
             else {
             //if they aren't waiting and aren't near a point then move them towards the point
                 Agent.destination = wp.position;
-                transform.LookAt(wp.position);
+                //transform.LookAt(wp.position);
             }
         }
         state = NodeState.RUNNING;
