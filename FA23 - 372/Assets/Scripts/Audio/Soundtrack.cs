@@ -28,28 +28,23 @@ public class Soundtrack : MonoBehaviour
 
     void setNextClip()
     {
+        clipIndex++;
         if (clipIndex >= AudioClips.Length)
         {
             clipIndex = 0;
         }
-        
-        if (AudioClips[clipIndex] != null)
-        {
-            AudioSource.clip = AudioClips[clipIndex];
-            AudioSource.Play();
-            soundtrackStarted = true;
-        }
+
+        AudioSource.clip = AudioClips[clipIndex];
+        AudioSource.Play();
+        soundtrackStarted = true;
     }
 
     private void Update()
     {
         if (frameCount % checkIfPlayingFrameModulo == 0)
         {
-            if (!AudioSource.isPlaying)
-            {
-                clipIndex++;
-                setNextClip();
-            }
+            if (AudioSource.isPlaying) return;
+            setNextClip();
         }
         else
         {
