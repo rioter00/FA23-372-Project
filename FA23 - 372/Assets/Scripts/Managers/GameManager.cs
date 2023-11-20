@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager enabledGameManager = null;
+    [Tooltip("Check this box to make any static managers in the scene not execute their Start functions, or other public functions.")]
+    public bool silenceManagers = false;
     [HideInInspector] public int waveCount = 0;
     [HideInInspector] public int playerHealth = 100;
     [HideInInspector] public int playerScore = 0;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (silenceManagers) return;
         GameObject[] allSpawnLocations = GameObject.FindGameObjectsWithTag("SpawnLocation");
         foreach (GameObject g in allSpawnLocations)
             if (g.GetComponent<SpawnLocation>().open)
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
 
 
      public void OnPlayerWeaponStateChange (GunState state) {
+        if (silenceManagers) return;
           switch (state) {
               case GunState.READYTOFIRE:
                   AIOverseer.overseer.SignalDodgeToFightingAgents();
