@@ -59,6 +59,8 @@ public class ShootingRangeChatter : MonoBehaviour
         ChatterObject.gameObject.SetActive(true);
         ChatterObject.transform.position = Waypoints[startingWaypoint].position;
         ChatterObject.clip = randomClip;
+        var randomPitch = Random.Range(.82f, 1.1f);
+        ChatterObject.pitch = randomPitch;
         ChatterObject.Play();
         float increment = 1 / timeToTravel;
         float runningTravel = 0;
