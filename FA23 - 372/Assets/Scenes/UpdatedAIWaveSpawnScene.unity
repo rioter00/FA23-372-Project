@@ -1473,6 +1473,10 @@ MonoBehaviour:
   knightPrefab: {fileID: 6251559957116596838, guid: cb568334f3091974eb0ee433e6950905, type: 3}
   bowmenPrefab: {fileID: 0}
   buglerPrefab: {fileID: 0}
+  UseNewQuotaSystem: 0
+  knightWaveQuotas: 
+  bowmenWaveQuotas: 
+  buglerWaveQuotas: 
 --- !u!114 &1792533258
 MonoBehaviour:
   m_ObjectHideFlags: 0
