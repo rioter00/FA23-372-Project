@@ -9,7 +9,7 @@ public class TaskPatrol : EnemyNode
 {
     private List<Transform> waypoints = new List<Transform>();
     private Transform transform;
-    //private Animator animator;
+    private Animator animator;
     NavMeshAgent Agent;
     private int currentWaypointIndex = 0;
 
@@ -19,17 +19,18 @@ public class TaskPatrol : EnemyNode
 
     
     // Start is called before the first frame update
-    public TaskPatrol(Transform transform, List<Transform> waypoints, NavMeshAgent Agent) {
+    public TaskPatrol(Transform transform, List<Transform> waypoints, NavMeshAgent Agent, Animator animator) {
         this.waypoints = waypoints;
         this.transform = transform;
         //animator = transform.GetComponent<Animator>();
-        
+        this.animator = animator;
         this.Agent = Agent;
         //for (int i = 0; i < waypoints.Count; i++) { Debug.Log(i); Debug.Log(waypoints[i].position); }
     }
 
     public override NodeState Evaluate()
     {
+        
         //check if enemy is waiting at a point
         if (waiting)
         {
@@ -39,6 +40,8 @@ public class TaskPatrol : EnemyNode
             {
                 waiting = false;
                 //this is where you set the animator to walking
+                animator.SetInteger("state", 1);
+
             }
         }
         else {
@@ -54,9 +57,11 @@ public class TaskPatrol : EnemyNode
                 currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
                 //Debug.Log("hai :3 3");
                 //where you tell the animator that you aren't walking
+                animator.SetInteger("state", 0);
             }
             else {
-            //if they aren't waiting and aren't near a point then move them towards the point
+                //if they aren't waiting and aren't near a point then move them towards the point
+                animator.SetInteger("state", 1);
                 Agent.destination = wp.position;
                 //transform.LookAt(wp.position);
             }

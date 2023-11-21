@@ -1506,6 +1506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8c5077ba4bd4a4baa30d8c9a337645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  silenceManagers: 0
   waveCount: 0
   playerHealth: 100
   playerScore: 0
