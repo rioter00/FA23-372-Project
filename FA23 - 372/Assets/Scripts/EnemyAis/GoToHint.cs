@@ -11,16 +11,18 @@ public class GoToHint : EnemyNode
     private float waitTime = 5f;
     private float waitCounter = 0f;
     private bool waiting = false;
-    GameObject enemy;
-    public GoToHint(NavMeshAgent Agent, GameObject enemy) { 
+    private GameObject enemy;
+    private Animator animator;
+    public GoToHint(NavMeshAgent Agent, GameObject enemy, Animator animator) { 
         this.Agent = Agent;
         Hintdestination = Agent.destination;
         this.enemy = enemy;
-
+        this.animator = animator;
     }
 
     public override NodeState Evaluate()
     {
+        animator.SetInteger("state", 1);
         if (waiting)
         {
             waitCounter += Time.deltaTime;
@@ -30,6 +32,7 @@ public class GoToHint : EnemyNode
                 waiting = false;
                 enemy.GetComponent<VisitedHint>().visitedHint = true;
                 //this is where you set the animator to walking
+                //animator.SetInteger("state", 0);
             }
         }
         else

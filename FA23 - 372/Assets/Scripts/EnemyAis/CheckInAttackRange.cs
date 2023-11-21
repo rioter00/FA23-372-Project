@@ -8,10 +8,12 @@ public class CheckInAttackRange : EnemyNode
     private Transform transform;
     //instantiate animator
     private float attackRange;
+    private Animator animator;
 
-    public CheckInAttackRange(Transform transform,float attackRange) { 
+    public CheckInAttackRange(Transform transform,float attackRange, Animator animator) { 
         this.transform = transform;
         this.attackRange = attackRange;
+        this.animator = animator;
     }
 
     public override NodeState Evaluate()
@@ -24,8 +26,9 @@ public class CheckInAttackRange : EnemyNode
 
         Transform target = (Transform)t;
         //checks is the distance between the enemy and the player is smaller than the attack range
-        if (Vector3.Distance(transform.position, target.position) <= attackRange) { 
+        if (Vector3.Distance(transform.position, target.position) <= attackRange) {
             //set the walking animation to be false and the attack animation to be true
+            animator.SetInteger("state", 2);
 
             state = NodeState.SUCCESS;
             return state;

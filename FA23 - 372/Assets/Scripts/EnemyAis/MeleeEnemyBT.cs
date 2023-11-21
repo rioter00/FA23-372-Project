@@ -13,11 +13,11 @@ public class MeleeEnemyBT : BehaviorTree.EnemyTree
         EnemyNode root = new Selector(new List<EnemyNode> {
             new Sequence(new List<EnemyNode>{ 
                 new CheckHealth(gameObject),
-                new TaskDie(gameObject),
+                new TaskDie(gameObject, gameObject.GetComponent<Animator>()),
             }),
             new Sequence(new List<EnemyNode>{
-                new CheckInAttackRange(transform, Agent.stoppingDistance),
-                new TaskAttack(transform, attackTime,attackDamage),
+                new CheckInAttackRange(transform, Agent.stoppingDistance, gameObject.GetComponent<Animator>()),
+                new TaskAttack(transform, attackTime,attackDamage, gameObject.GetComponent<Animator>()),
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckEnemyInRange(transform,agroRange),
@@ -35,9 +35,9 @@ public class MeleeEnemyBT : BehaviorTree.EnemyTree
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckTimePassed(transform, Agent, gameObject),
-                new TaskPatrol(transform, AIOverseer.overseer.waypoints,Agent),
+                new TaskPatrol(transform, AIOverseer.overseer.waypoints,Agent, gameObject.GetComponent<Animator>()),
             }),
-            new GoToHint(Agent, gameObject),
+            new GoToHint(Agent, gameObject, gameObject.GetComponent<Animator>()),
         }); 
         return root;
     }
