@@ -20,8 +20,11 @@ public class TaskAttack : EnemyNode
 
     public override NodeState Evaluate()
     {
+        //animator.SetInteger("state", 0);
+        
         Transform target = (Transform)GetData("target");
         if (target != lastTarget) { 
+            //playerHealth = target.GetComponent<PlayerHealth()>;
             playerManager = target.GetComponent<PlayerManager>();
             lastTarget = target;
         }
@@ -29,6 +32,9 @@ public class TaskAttack : EnemyNode
         attackCounter += Time.deltaTime;
         if (attackCounter >= attackTime) {
             Debug.Log("ATTACKING");
+            animator.SetInteger("state", 2);
+
+            //bool enemyIsDead = playerHealth.TakeDamage(damage);
             bool enemyIsDead = playerManager.TakeHit(damage);
 
             if (enemyIsDead)

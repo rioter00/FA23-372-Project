@@ -17,8 +17,8 @@ public class CheckHealth : EnemyNode
             state = NodeState.SUCCESS;
             return state;
         }
-        else {
-            return NodeState.FAILURE;
-        }
+        state = NodeState.FAILURE;
+        return state;
+  
     }
 }
