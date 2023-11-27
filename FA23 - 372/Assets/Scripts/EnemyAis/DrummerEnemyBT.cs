@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
+using UnityEngine.AI;
 
-public class DrummerEnemyBT : BehaviorTree.Tree
+public class DrummerEnemyBT : BehaviorTree.EnemyTree
 {
-    public UnityEngine.Transform[] waypoints;
+    // nick changed this from array to list
+    public List<Transform> waypoints;
 
     public float speed = 2f;
     public float agroRange = 6f;
@@ -16,12 +18,14 @@ public class DrummerEnemyBT : BehaviorTree.Tree
     public int attackDamage = 10;
 
 
-    protected override Node SetupTree()
+    protected override EnemyNode SetupTree()
     {
-        Node root = new Selector(new List<Node> {
-            new Sequence(new List<Node>{
-                new CheckInAttackRange(transform,attackRange),
-                new TaskAttack(transform, attackTime,attackDamage),
+        EnemyNode root = new Selector(new List<EnemyNode> {
+            new Sequence(new List<EnemyNode>{
+                // fix this line
+                new CheckInAttackRange(transform, attackRange, null),
+                // fix this line
+                new TaskAttack(transform, attackTime,attackDamage, null),
             }),
             /*new Sequence(new List<Node>{
                 CheckDrummerAttack();
@@ -32,7 +36,7 @@ public class DrummerEnemyBT : BehaviorTree.Tree
              }),
              
              */
-            new Sequence(new List<Node>{
+            new Sequence(new List<EnemyNode>{
                 new CheckTeammateInRange(transform,agroRange),
                /* new Sequence(new List<Node>{ 
                     new Flip(new List<Node>{
@@ -44,9 +48,12 @@ public class DrummerEnemyBT : BehaviorTree.Tree
                     TaskPursue(),
                 }),
                 }),*/
-                new TaskPursue(transform,speed,distanceFromPlayer),
+               // fix this line
+               // new TaskPursue(transform,speed,distanceFromPlayer, null),
+               // new TaskPursue(transform,speed,distanceFromPlayer, null),
             }),
-            new TaskPatrol(transform, waypoints,speed),
+            // fix this line
+            new TaskPatrol(transform, waypoints, null , null),
         });
         return root;
     }
