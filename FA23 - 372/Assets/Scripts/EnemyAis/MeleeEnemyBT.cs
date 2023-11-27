@@ -11,19 +11,14 @@ public class MeleeEnemyBT : BehaviorTree.EnemyTree
     {
         
         EnemyNode root = new Selector(new List<EnemyNode> {
-            new Sequence(new List<EnemyNode>{
-                new CheckInAttackRange(transform, Agent.stoppingDistance),
-                new TaskAttack(transform, attackTime,attackDamage),
+            new Sequence(new List<EnemyNode>{ 
+                new CheckHealth(gameObject),
+                new TaskDie(gameObject, gameObject.GetComponent<Animator>()),
             }),
-            /*new Sequence(new List<Node>{
-                CheckDrummerAttack();
-                new Flip(new List<Node>{
-                    CheckBuffed();
-             }),
-                TaskBuffStats();
-             }),
-             
-             */
+            new Sequence(new List<EnemyNode>{
+                new CheckInAttackRange(transform, Agent.stoppingDistance, gameObject.GetComponent<Animator>()),
+                new TaskAttack(transform, attackTime,attackDamage, gameObject.GetComponent<Animator>()),
+            }),
             new Sequence(new List<EnemyNode>{
                 new CheckEnemyInRange(transform,agroRange),
                /* new Sequence(new List<Node>{ 
@@ -39,10 +34,10 @@ public class MeleeEnemyBT : BehaviorTree.EnemyTree
                 new TaskPursue(transform,Agent),
             }),
             new Sequence(new List<EnemyNode>{
-                //new CheckTimePassed(transform, Agent),
-                new TaskPatrol(transform, AIOverseer.overseer.waypoints,Agent),
+                new CheckTimePassed(transform, Agent, gameObject),
+                new TaskPatrol(transform, AIOverseer.overseer.waypoints,Agent, gameObject.GetComponent<Animator>()),
             }),
-            //new GoToHint(Agent),
+            new GoToHint(Agent, gameObject, gameObject.GetComponent<Animator>()),
         }); 
         return root;
     }

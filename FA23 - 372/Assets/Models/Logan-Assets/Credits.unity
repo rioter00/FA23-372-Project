@@ -752,6 +752,11 @@ MonoBehaviour:
     Prop modeler,
     Painting Artist
 
+    Prop and Building Artist
+
+
+    Programmer(Musket and Health)
+
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
@@ -761,8 +766,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284177243
+  m_fontColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1059,13 +1064,20 @@ MonoBehaviour:
     Anderson:
 
 
+    Juan Flores:
+
+
     Cole Beaulieu:
 
 
     Alex Peterson:
 
 
-    Gage Lurvey:
+    Gage
+    Lurvey:
+
+
+    Ethan Schneider:
 
 '
   m_isRightToLeft: 0

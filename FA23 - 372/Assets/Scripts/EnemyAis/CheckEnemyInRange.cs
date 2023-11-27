@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
+using UnityEngine.UIElements;
 
 public class CheckEnemyInRange : EnemyNode
 {
-    private Transform transform;
+    private Transform Enemytransform;
     public static int playerLayerMask = 1 << 6;
     private float agroRange;
+    float angle;
+    float seeAngle;
 
     public CheckEnemyInRange(Transform transform, float agroRange)
     {
-        this.transform = transform;
+        this.Enemytransform = transform;
         this.agroRange = agroRange;
-
+        //this.seeAngle = seeAngle;
+       // Debug.Log(this.seeAngle);
     }
 
     public override NodeState Evaluate()
@@ -23,9 +27,17 @@ public class CheckEnemyInRange : EnemyNode
         {
             
             //get a list of the player colliders that are in the agro range of the enemy
-            Collider[] initialColliders = Physics.OverlapSphere(transform.position, agroRange, playerLayerMask);
-
+            Collider[] initialColliders = Physics.OverlapSphere(Enemytransform.position, agroRange, playerLayerMask);
             if (initialColliders.Length > 0)
+            {
+                Vector3 playerPos = (initialColliders[0].transform.position).normalized;
+                Vector3 direction = (Enemytransform.position - playerPos).normalized;
+                angle = Vector3.Angle(direction, Enemytransform.forward);
+                //Debug.Log(angle);
+            }
+
+            //if (initialColliders.Length > 0)
+            if(initialColliders.Length > 0 && angle < 100)
             {
                 
                 //AIOverseer.overseer.ReportFightingAgentAddition(gameObject);

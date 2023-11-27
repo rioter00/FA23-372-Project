@@ -5,33 +5,25 @@ using BehaviorTree;
 
 public class RangedEnemyBT : BehaviorTree.EnemyTree
 {
-    
-
-    public float speed = 2f;
-    //public float agroRange = 6f;
-
-    public float distanceFromPlayer = .1f;
-    public float attackRange = 2f;
-    //public float attackTime = 1f;
-    //public int attackDamage = 10;
-
-
+    private float time;
+    [SerializeField]
+    private Transform arrowShootPoint;
+    [SerializeField]
+    private GameObject arrowPrefab;
+    [SerializeField]
+    private float arrowSpeed;
     protected override EnemyNode SetupTree()
     {
+
         EnemyNode root = new Selector(new List<EnemyNode> {
             new Sequence(new List<EnemyNode>{
-                new CheckInAttackRange(transform,attackRange),
-                new TaskAttack(transform, attackTime, attackDamage),
+                new CheckHealth(gameObject),
+                new TaskDie(gameObject, gameObject.GetComponent<Animator>()),
             }),
-            /*new Sequence(new List<Node>{
-                CheckDrummerAttack();
-                new Flip(new List<Node>{
-                    CheckBuffed();
-             }),
-                TaskBuffStats();
-             }),
-             
-             */
+            new Sequence(new List<EnemyNode>{
+                new CheckInAttackRange(transform, Agent.stoppingDistance, gameObject.GetComponent<Animator>()),
+                new TaskRangedAttack(transform, attackTime,attackDamage, arrowShootPoint, arrowPrefab, arrowSpeed),
+            }),
             new Sequence(new List<EnemyNode>{
                 new CheckEnemyInRange(transform,agroRange),
                /* new Sequence(new List<Node>{ 
@@ -44,10 +36,13 @@ public class RangedEnemyBT : BehaviorTree.EnemyTree
                     TaskPursue(),
                 }),
                 }),*/
-                //new TaskPursue(transform,distanceFromPlayer, Agent),
-                new TaskPursue(transform, Agent),
+                new TaskPursue(transform,Agent),
             }),
-            new TaskPatrol(transform, AIOverseer.overseer.waypoints, Agent),
+            new Sequence(new List<EnemyNode>{
+                new CheckTimePassed(transform, Agent, gameObject),
+                new TaskPatrol(transform, AIOverseer.overseer.waypoints,Agent, gameObject.GetComponent<Animator>()),
+            }),
+            new GoToHint(Agent, gameObject, gameObject.GetComponent<Animator>()),
         });
         return root;
     }

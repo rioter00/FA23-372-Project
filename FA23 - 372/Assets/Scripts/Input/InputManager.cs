@@ -20,6 +20,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] public InputButtonState Gun_Bullet;
     [SerializeField] public InputButtonState Gun_Tamp;
     [SerializeField] public InputButtonState Dash;
+    [SerializeField] public InputButtonState Escape;
 
     [HideInInspector] public UnityEvent OnDashButtonDown;
 
@@ -52,6 +53,7 @@ public class InputManager : MonoBehaviour
         Gun_Bullet = UpdateButtonState(Gun_Bullet, playerControls.gameplay.Gun_Bullet);
         Gun_Tamp = UpdateButtonState(Gun_Tamp, playerControls.gameplay.Gun_Tamp);
         Dash = UpdateButtonState(Dash, playerControls.gameplay.Dash);
+        Escape = UpdateButtonState(Escape, playerControls.gameplay.Escape);
 
         if (Dash == InputButtonState.ButtonDown) OnDashButtonDown.Invoke();
 
