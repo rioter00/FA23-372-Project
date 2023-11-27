@@ -19,6 +19,9 @@ public class ShootingRangeChatter : MonoBehaviour
     
     [SerializeField] private float randomTimeMin, randomTimeMax, randomTime;
 
+    [Range(0, 1)] public float voicesVolume = .8f;
+    
+
     private void OnEnable()
     {
         for (int i = 0; i < LiveChatterObjectLimit; i++)
@@ -61,6 +64,7 @@ public class ShootingRangeChatter : MonoBehaviour
         ChatterObject.clip = randomClip;
         var randomPitch = Random.Range(.82f, 1.1f);
         ChatterObject.pitch = randomPitch;
+        ChatterObject.volume = voicesVolume;
         ChatterObject.Play();
         float increment = 1 / timeToTravel;
         float runningTravel = 0;
