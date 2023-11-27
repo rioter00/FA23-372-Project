@@ -14,17 +14,17 @@ public class TaskRangedAttack : EnemyNode
     private Transform arrowShootPoint;
     private GameObject arrowPrefab;
     private float arrowSpeed;
-    private Animator animator;
+    private FireProjectile fp;
 
 
-    public TaskRangedAttack(Transform transform, float attackTime, int damage, Transform asp, GameObject arrowPrefab, float arrowSpeed, Animator animator)
+    public TaskRangedAttack(Transform transform, float attackTime, int damage, Transform asp, GameObject arrowPrefab, float arrowSpeed)
     {
         this.attackTime = attackTime;
         this.damage = damage;
         arrowShootPoint = asp;
         this.arrowPrefab = arrowPrefab;
         this.arrowSpeed = arrowSpeed;
-        this.animator = animator;
+        fp = new FireProjectile();
     }
 
     public override NodeState Evaluate()
@@ -32,7 +32,6 @@ public class TaskRangedAttack : EnemyNode
         Transform target = (Transform)GetData("target");
         if (target != lastTarget)
         {
-            //playerHealth = target.GetComponent<PlayerHealth()>;
             playerManager = target.GetComponent<PlayerManager>();
             lastTarget = target;
         }
@@ -40,19 +39,15 @@ public class TaskRangedAttack : EnemyNode
         attackCounter += Time.deltaTime;
         if (attackCounter >= attackTime)
         {
-            animator.SetInteger("state", 2);
-
-            //bool enemyIsDead = playerHealth.TakeDamage(damage);
             //bool enemyIsDead = playerManager.TakeHit(damage);
-            FireProjectile.shoot(arrowPrefab, arrowShootPoint, arrowSpeed);
+            fp.shoot(arrowPrefab, arrowShootPoint, arrowSpeed);
             /*if (enemyIsDead)
             {
                 ClearData("target");
-                animator.SetInteger("state", 1);
                 //switch from atacking to walking in the animator
-            }*/
-            //else
-            //{
+            }
+            else
+            {*/
             attackCounter = 0f;
             //}
         }

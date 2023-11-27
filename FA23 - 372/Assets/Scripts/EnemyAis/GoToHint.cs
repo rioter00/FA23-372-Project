@@ -25,7 +25,6 @@ public class GoToHint : EnemyNode
         animator.SetInteger("state", 1);
         if (waiting)
         {
-            animator.SetInteger("state", 0);
             waitCounter += Time.deltaTime;
             //if they have waited long enough then they are walking
             if (waitCounter >= waitTime)
@@ -48,7 +47,7 @@ public class GoToHint : EnemyNode
             }
         }
         //Debug.Log(enemy.GetComponent<VisitedHint>().visitedHint);
-        state = NodeState.SUCCESS;
+        state = NodeState.RUNNING;
         return state;
     }
 }

@@ -19,8 +19,7 @@ namespace BehaviorTree {
             root = SetupTree();
             Agent = GetComponent<NavMeshAgent>();
             AttackRange = Agent.stoppingDistance;
-
-
+            
         }
 
         private void Update()

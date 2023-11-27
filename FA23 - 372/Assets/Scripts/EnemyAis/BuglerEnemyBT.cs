@@ -11,13 +11,13 @@ public class BuglerEnemyBT : BehaviorTree.EnemyTree
     {
 
         EnemyNode root = new Selector(new List<EnemyNode> {
-           new Sequence(new List<EnemyNode>{
+            new Sequence(new List<EnemyNode>{
                 new CheckHealth(gameObject),
                 new TaskDie(gameObject, gameObject.GetComponent < Animator >()),
             }),
             new Sequence(new List<EnemyNode>{
-                new CheckAllyInAttackRange(transform, Agent.stoppingDistance),// gameObject.GetComponent<Animator>()
-                new TaskBuglerAttack(transform, attackTime,attackDamage, gameObject.GetComponent<Animator>()),//
+                new CheckInAttackRange(transform, Agent.stoppingDistance, gameObject.GetComponent<Animator>()),
+                new TaskAttack(transform, attackTime,attackDamage, gameObject.GetComponent<Animator>()),
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckEnemyInRange(transform,agroRange),
@@ -31,7 +31,7 @@ public class BuglerEnemyBT : BehaviorTree.EnemyTree
                     TaskPursue(),
                 }),
                 }),*/
-                new TaskPursue(transform,Agent, gameObject.GetComponent < Animator >()),
+                new TaskPursue(transform,Agent),
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckTimePassed(transform, Agent, gameObject),

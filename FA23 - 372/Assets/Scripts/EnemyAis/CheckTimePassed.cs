@@ -28,12 +28,10 @@ public class CheckTimePassed : EnemyNode
         
         if (enemy.GetComponent<VisitedHint>().visitedHint == true)
         {
-            state = NodeState.SUCCESS; 
-            return state;
+            state = NodeState.SUCCESS; return state;
         }
-
-        state = NodeState.FAILURE;
-        return state;
-        
+        else { 
+            return NodeState.FAILURE;
+        }
     }
 }

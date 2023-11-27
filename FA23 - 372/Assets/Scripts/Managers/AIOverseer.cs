@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class AIOverseer : MonoBehaviour
 {
-    public List<GameObject> activeAgents = new List<GameObject>();
+    private List<GameObject> activeAgents = new List<GameObject>();
     private List<GameObject> fightingAgents = new List<GameObject>();
     public static AIOverseer overseer = null;
 

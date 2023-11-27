@@ -31,7 +31,7 @@ public class MeleeEnemyBT : BehaviorTree.EnemyTree
                     TaskPursue(),
                 }),
                 }),*/
-                new TaskPursue(transform,Agent, gameObject.GetComponent<Animator>()),
+                new TaskPursue(transform,Agent),
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckTimePassed(transform, Agent, gameObject),
