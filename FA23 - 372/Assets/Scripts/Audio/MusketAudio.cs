@@ -141,7 +141,6 @@ public class MusketAudio : MonoBehaviour
     void playPowderSound()
     {
         var _source = getNewAudioSource();
-        print("playpowdersound");
         if (musket.Powder > 0f && !powderIsPlaying)
         {
             print("starting powder");
