@@ -747,17 +747,24 @@ MonoBehaviour:
     Programmer(navMesh),
     animation rig
 
-    Prop/Environment Decoration and Design
+    Prop/Environment Decoration & Design
 
-    Prop modeler,
-    Painting Artist
+    Prop modeler, Painting
+    Artist
 
     Prop and Building Artist
 
 
-    Programmer(Musket and Health)
+    Programmer(Musket & Health)
 
-'
+    Programmer(FPS
+    Movement & Scene Manager)
+
+    Prop and Building Modeler
+
+
+    Programmer(AI
+    Behavior)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
   m_sharedMaterial: {fileID: 529898400736359102, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
@@ -1079,7 +1086,15 @@ MonoBehaviour:
 
     Ethan Schneider:
 
-'
+
+    Sergio Lopez:
+
+
+    Isaac Castillo Cano:
+
+
+    Sam
+    Svendsen:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
   m_sharedMaterial: {fileID: 529898400736359102, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
