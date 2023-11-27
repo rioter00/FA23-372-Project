@@ -24,6 +24,8 @@ public class InputManager : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnDashButtonDown;
 
+    public UnityEvent OnEscapeButtonDown;
+
     private void Awake()
     {
         //Cursor.lockState = CursorLockMode.Locked;   
@@ -56,6 +58,7 @@ public class InputManager : MonoBehaviour
         Escape = UpdateButtonState(Escape, playerControls.gameplay.Escape);
 
         if (Dash == InputButtonState.ButtonDown) OnDashButtonDown.Invoke();
+        if (Escape == InputButtonState.ButtonDown) OnEscapeButtonDown.Invoke();
 
         //wasd = move
         //mouse = look
