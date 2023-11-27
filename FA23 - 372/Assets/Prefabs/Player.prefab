@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9096863825065448492
@@ -254,7 +254,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  gravity: 0
+  gravity: -1
   dashDuration: 0.3
   dashCooldown: 1
   dashSpeedMultiplier: 3
@@ -296,7 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e7beeef9c5cc945a4bdfcbf2a368d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
   redSplatterImage: {fileID: 8784107896583567760}
   hurtImage: {fileID: 6206650713793861458}
   hurtTimer: 0.1
@@ -830,7 +829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6916870648112298122
@@ -1195,6 +1194,10 @@ PrefabInstance:
       propertyPath: musketPowder.Loudness
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 6292327411303388307, guid: 56d4ddc6c389c46fc82107c881497676, type: 3}
+      propertyPath: musketPowder.AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e9daa23260e6f4295b7925100cd6a5c4, type: 3}
     - target: {fileID: 7918543025655776549, guid: 56d4ddc6c389c46fc82107c881497676, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5409999
