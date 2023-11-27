@@ -22,7 +22,7 @@ public class RangedEnemyBT : BehaviorTree.EnemyTree
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckInAttackRange(transform, Agent.stoppingDistance, gameObject.GetComponent<Animator>()),
-                new TaskRangedAttack(transform, attackTime,attackDamage, arrowShootPoint, arrowPrefab, arrowSpeed),
+                new TaskRangedAttack(transform, attackTime,attackDamage, arrowShootPoint, arrowPrefab, arrowSpeed, gameObject.GetComponent<Animator>()),
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckEnemyInRange(transform,agroRange),
@@ -36,7 +36,7 @@ public class RangedEnemyBT : BehaviorTree.EnemyTree
                     TaskPursue(),
                 }),
                 }),*/
-                new TaskPursue(transform,Agent),
+                new TaskPursue(transform,Agent, gameObject.GetComponent < Animator >()),
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckTimePassed(transform, Agent, gameObject),
