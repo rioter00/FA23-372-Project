@@ -16,8 +16,6 @@ public class UIReload : MonoBehaviour
     [SerializeField] private bool invisibleOnEnable;
     [SerializeField] private float fadeTimeInMS;
     [SerializeField] private Slider powderSlider;
-    [SerializeField] private RectTransform powderMarker;
-    [SerializeField] private Image sliderHandleImage;
     [SerializeField] private Slider sweetspotMinSlider, sweetspotMaxSlider, powderMinSlider, powderMaxSlider;
     [SerializeField] private bool fadingIn, fadingOut, visible = false;
     private IEnumerator fadeCoroutine;
@@ -89,7 +87,7 @@ public class UIReload : MonoBehaviour
     
     IEnumerator fadeInCoroutine()
     {
-        reloadCanvas.alpha = 0;
+        // reloadCanvas.alpha = 0;
         fadingIn = true;
         var currentTime = 0f;
         var increment = 1.0f / fadeTimeInMS;
