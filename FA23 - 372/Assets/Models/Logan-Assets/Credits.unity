@@ -747,17 +747,24 @@ MonoBehaviour:
     Programmer(navMesh),
     animation rig
 
-    Prop/Environment Decoration and Design
+    Prop/Environment Decoration & Design
 
-    Prop modeler,
-    Painting Artist
+    Prop modeler, Painting
+    Artist
 
     Prop and Building Artist
 
 
-    Programmer(Musket and Health)
+    Programmer(Musket & Health)
 
-'
+    Programmer(FPS
+    Movement & Scene Manager)
+
+    Prop and Building Modeler
+
+
+    Programmer(AI
+    Behavior)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
   m_sharedMaterial: {fileID: 529898400736359102, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
@@ -1079,7 +1086,15 @@ MonoBehaviour:
 
     Ethan Schneider:
 
-'
+
+    Sergio Lopez:
+
+
+    Isaac Castillo Cano:
+
+
+    Sam
+    Svendsen:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
   m_sharedMaterial: {fileID: 529898400736359102, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
@@ -1698,63 +1713,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1001 &2028406722612214178
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 378698098274884483, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_Name
-      value: archerIdle
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.89871216
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.271267
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1011822574930886969, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f865664bc9605234f8fdc0b54b4eb4e1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1765,4 +1723,3 @@ SceneRoots:
   - {fileID: 1991153034}
   - {fileID: 225461350}
   - {fileID: 1834720224}
-  - {fileID: 2028406722612214178}
