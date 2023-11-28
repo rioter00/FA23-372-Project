@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         input = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputManager>();
         input.OnDashButtonDown.AddListener(Dash);
         baseMovementSpeed = movementSpeed;
-        if (cursorLock) Cursor.lockState = CursorLockMode.Locked;
+        //if (cursorLock) Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()

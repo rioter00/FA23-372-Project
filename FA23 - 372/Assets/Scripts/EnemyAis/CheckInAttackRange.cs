@@ -28,7 +28,7 @@ public class CheckInAttackRange : EnemyNode
         //checks is the distance between the enemy and the player is smaller than the attack range
         if (Vector3.Distance(transform.position, target.position) <= attackRange) {
             //set the walking animation to be false and the attack animation to be true
-            animator.SetInteger("state", 2);
+            //animator.SetInteger("state", 2);
 
             state = NodeState.SUCCESS;
             return state;
