@@ -24,7 +24,12 @@ public class Musket : MonoBehaviour {
     [Header("Bullet Stuff")]
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] float bulletSpeed;
+    //
+    public LayerMask LayerMask;
+    public Camera mainCamera;
+    
     private void Start() {
+        mainCamera = Camera.main;
         gState = GunState.READYTOFIRE;
         bullets = 1;
         maxPowder = 0.66f;
@@ -129,6 +134,15 @@ public class Musket : MonoBehaviour {
     private void Shoot() { // Shoots the gun and changes state to NOTREADY so the player needs to reload to fire again
         gState = GunState.NOTREADY;
         //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
+        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var hit,
+                Mathf.Infinity, LayerMask))
+        {
+            bulletSpawnPoint.LookAt(hit.transform);
+        }
+        else
+        {
+            bulletSpawnPoint.rotation = mainCamera.transform.rotation;
+        }
         bullets--;
         GameObject bullet = BulletPool.instance.GetPooledObjects();
         if (bullet != null) {
