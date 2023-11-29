@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +13,23 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int playerHealth = 100;
     [HideInInspector] public int playerScore = 0;
 
+    private bool cursorEnabled = false;
 
     private void Awake()
     {
         if (enabledGameManager == null) enabledGameManager = this;
         else Destroy(this);
+        switch(SceneManager.GetActiveScene().buildIndex)
+        {
+            case 1:
+            case 2:
+                Cursor.lockState = CursorLockMode.Locked;
+                break;
+            default:
+                Cursor.lockState = CursorLockMode.None;
+                break;
+                
+        }
     }
 
     private void Start()
@@ -41,5 +54,16 @@ public class GameManager : MonoBehaviour
                   break;
           }
      }
+
+    public void ToggleCursorLock()
+    {
+        if(cursorEnabled) {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        cursorEnabled = !cursorEnabled;
+    }
 
 }

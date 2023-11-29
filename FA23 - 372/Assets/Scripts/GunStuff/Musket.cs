@@ -24,7 +24,12 @@ public class Musket : MonoBehaviour {
     [Header("Bullet Stuff")]
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] float bulletSpeed;
+    //
+    public LayerMask LayerMask;
+    public Camera mainCamera;
+    
     private void Start() {
+        mainCamera = Camera.main;
         gState = GunState.READYTOFIRE;
         bullets = 1;
         maxPowder = 0.66f;
@@ -59,7 +64,7 @@ public class Musket : MonoBehaviour {
                     rState = ReloadingState.RELOADINGSTAGE1;
                     tamps = 0;
                     Powder = 0f;
-                    //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
+                    GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                 }
                 break;
             case GunState.RELOADING: //For the different stages of reloading
@@ -97,7 +102,7 @@ public class Musket : MonoBehaviour {
                             }
                             else {
                                 gState = GunState.NOTREADY; //if wrong ammount of poweder is in the gun change gState to NOTREADY
-                                //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
+                                GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                             }
                         }
                         break;
@@ -117,7 +122,7 @@ public class Musket : MonoBehaviour {
                             gState = GunState.READYTOFIRE;
                             tamps = 0;
                             Powder = 0f;
-                            //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
+                            GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                         }
                         break;
                 }
@@ -128,7 +133,16 @@ public class Musket : MonoBehaviour {
 
     private void Shoot() { // Shoots the gun and changes state to NOTREADY so the player needs to reload to fire again
         gState = GunState.NOTREADY;
-        //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
+        GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
+        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var hit,
+                Mathf.Infinity, LayerMask))
+        {
+            bulletSpawnPoint.LookAt(hit.transform);
+        }
+        else
+        {
+            bulletSpawnPoint.rotation = mainCamera.transform.rotation;
+        }
         bullets--;
         GameObject bullet = BulletPool.instance.GetPooledObjects();
         if (bullet != null) {
