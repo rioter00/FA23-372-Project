@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 3
     agentTypeID: 0
-    agentRadius: 0.4
-    agentHeight: 2
+    agentRadius: 0.3
+    agentHeight: 1.7
     agentSlope: 46
-    agentClimb: 0.4
+    agentClimb: 0.7
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.13333334
+    cellSize: 0.1
     manualTileSize: 0
     tileSize: 256
     buildHeightMesh: 0
@@ -1276,7 +1276,6 @@ GameObject:
   - component: {fileID: 1131132914}
   - component: {fileID: 1131132913}
   - component: {fileID: 1131132915}
-  - component: {fileID: 1131132919}
   m_Layer: 0
   m_Name: nav-agent 1
   m_TagString: Untagged
@@ -1343,27 +1342,6 @@ NavMeshAgent:
   m_BaseOffset: -0.25
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &1131132919
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131132912}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 5dc276880ce8af9429b08df60ca1cfc2, type: 2}
-  m_Controller: {fileID: 9100000, guid: 48a5e35221421f041a224a8d8f91afd8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1279969054
 GameObject:
   m_ObjectHideFlags: 0
