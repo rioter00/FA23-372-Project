@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5854672353600406523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7918543025655776549}
+  - component: {fileID: 6379039478169640619}
+  - component: {fileID: 6292327411303388307}
+  m_Layer: 0
+  m_Name: Musket Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7918543025655776549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854672353600406523}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5409999, y: 1.082, z: 0.94499993}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &6379039478169640619
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854672353600406523}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7727268742523031613, guid: b9b3d6ab7f5624b49b05fffce7514549, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6292327411303388307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854672353600406523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55189e115ffc24c42ad03e65d58ccf6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musket: {fileID: 0}
+  musketAudioSources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  weaponMixerGroup: {fileID: -7727268742523031613, guid: b9b3d6ab7f5624b49b05fffce7514549, type: 2}
+  musketPowder:
+    AudioClip: {fileID: 8300000, guid: 75afc6eb6de1f45a585f45d1e2747411, type: 3}
+    PlayOnEnable: 0
+    Loudness: 0.4
+    Category: 1
+    PlayAsMono: 0
+    RandomizePitch: 1
+    PitchVarianceFloat: 0.5
+  musketBulletLoad:
+    AudioClip: {fileID: 8300000, guid: 73e0c57ae63c643e2946e470bdf371ee, type: 3}
+    PlayOnEnable: 0
+    Loudness: 0.4
+    Category: 1
+    PlayAsMono: 0
+    RandomizePitch: 1
+    PitchVarianceFloat: 0.1
+  musketTampClips:
+    AudioClips:
+    - {fileID: 8300000, guid: e03a3a386a4844692ac9d7172226cd42, type: 3}
+    - {fileID: 8300000, guid: 7ef337513f5e94601a9e51980a7dcd3c, type: 3}
+    - {fileID: 8300000, guid: c4a938541809b4447b2da9692548be41, type: 3}
+    PlayOnEnable: 0
+    Loudness: 0.2
+    Category: 1
+    PlayAsMono: 0
+    RandomizePitch: 1
+    PitchVarianceFloat: 0.2
+  musketShoot:
+    AudioClip: {fileID: 8300000, guid: 797ce94620f904537ac096bb10ae27dd, type: 3}
+    PlayOnEnable: 0
+    Loudness: 0.5
+    Category: 0
+    PlayAsMono: 0
+    RandomizePitch: 1
+    PitchVarianceFloat: 0.2

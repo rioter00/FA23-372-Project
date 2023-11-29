@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 using UnityEngine.AI;
+using Unity.VisualScripting;
 
 public class CheckTimePassed : EnemyNode
 {
@@ -11,44 +12,26 @@ public class CheckTimePassed : EnemyNode
     //bool wentToHint = false;
     Transform transform;
     NavMeshAgent agent;
+    bool accomplished;
+    GameObject enemy;
 
-    public CheckTimePassed(Transform transform, NavMeshAgent Agent) {
+    public CheckTimePassed(Transform transform, NavMeshAgent Agent, GameObject enemy) {
         this.transform = transform;
         this.agent = Agent;
+        
+        this.enemy = enemy;
     }
 
     public override NodeState Evaluate()
     {
-        //Debug.Log(wentToHint);
-        if (Vector3.Distance(transform.position, agent.destination) < agent.stoppingDistance)
+        //Debug.Log(accomplished);
+        
+        if (enemy.GetComponent<VisitedHint>().visitedHint == true)
         {
-            state = NodeState.FAILURE;
-            return state;
+            state = NodeState.SUCCESS; return state;
         }
-
-        stopTime -= Time.deltaTime;
-        if (stopTime <= 0.0f) { 
-            state = NodeState.SUCCESS;
-            return state;
-        }
-        /*while (stopTime >= 0.0f) {
-            Debug.Log("Reached Dest");
-            
-            wentToHint = true;
-        }
-        /*else if (stopTime >= 0.0f)
-        {
-            Debug.Log("Reached Dest");
-            stopTime -= Time.deltaTime;
-            wentToHint = true;
-            state = NodeState.FAILURE;
-            return state;
-        }*/
-  
-        else
-        {
-            state = NodeState.FAILURE;
-            return state;
+        else { 
+            return NodeState.FAILURE;
         }
     }
 }

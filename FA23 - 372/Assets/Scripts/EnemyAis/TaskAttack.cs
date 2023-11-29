@@ -10,10 +10,12 @@ public class TaskAttack : EnemyNode
     private float attackTime;
     private float attackCounter = 0f;
     private int damage;
+    private Animator animator;
 
-    public TaskAttack(Transform transform, float attackTime, int damage) { 
+    public TaskAttack(Transform transform, float attackTime, int damage, Animator animator) { 
         this.attackTime = attackTime;
         this.damage = damage;
+        this.animator = animator;
     }
 
     public override NodeState Evaluate()
@@ -33,6 +35,7 @@ public class TaskAttack : EnemyNode
             {
                 ClearData("target");
                 //switch from atacking to walking in the animator
+                animator.SetInteger("state", 1);
             }
             else
             {
