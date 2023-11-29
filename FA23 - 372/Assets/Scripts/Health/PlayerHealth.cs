@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour, IHealth{
     private bool canRegan = false;
     private int regenRate = 10;
     private bool isRegen;
+    private bool canTakeDamage = true;
+    private float invTime = 1.5f;
 
     [Header("Add the Splatter image here")]
     [SerializeField] private Image redSplatterImage = null;
@@ -30,17 +32,22 @@ public class PlayerHealth : MonoBehaviour, IHealth{
     private AudioSource healthAudioSource;
 
     public void TakeDamage(int damage){
-        HP -= damage;
-        if (HP <= 0){
-            Death();
+        if (canTakeDamage) {
+            canTakeDamage = false;
+            HP -= damage;
+            if (HP <= 0) {
+                Death();
+            }
+            else {
+                canRegan = false;
+                StartCoroutine(HurtFlash());
+                UpdateHealth();
+                healCooldown = maxHealCooldown;
+                startCooldown = true;
+            }
+            Invoke("DamageReset", invTime);
         }
-        else {
-            canRegan = false;
-            StartCoroutine(HurtFlash());
-            UpdateHealth();
-            healCooldown = maxHealCooldown;
-            startCooldown = true;
-        }
+        
     }
     public void Death(){
         LState = LivingState.DEAD;
@@ -97,5 +104,9 @@ public class PlayerHealth : MonoBehaviour, IHealth{
             UpdateHealth();
             isRegen = false;
         }
+    }
+
+    private void DamageReset() {
+        canTakeDamage = true;
     }
 }
