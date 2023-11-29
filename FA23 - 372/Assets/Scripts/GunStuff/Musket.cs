@@ -36,6 +36,7 @@ public class Musket : MonoBehaviour {
         minPowder = 0.33f;
         sweetMin = 0.47f;
         sweetMax = 0.53f;
+        inputManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputManager>();
         //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
     }
 
