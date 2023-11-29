@@ -56,7 +56,7 @@ public class PlayerHealth : MonoBehaviour, IHealth{
 
     void UpdateHealth() {
         Color splatterAlpha = redSplatterImage.color;
-        splatterAlpha.a = 1 - (HP / MaxHP);
+        splatterAlpha.a = 1 - ((float)HP / (float)MaxHP);
         redSplatterImage.color = splatterAlpha;
     }
 
