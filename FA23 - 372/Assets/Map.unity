@@ -622,7 +622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2819306717453170214, guid: 8df09a7f65101094490ce3a7fb12d3ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 57.3
+      value: 52.75
       objectReference: {fileID: 0}
     - target: {fileID: 2819306717453170214, guid: 8df09a7f65101094490ce3a7fb12d3ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1012,7 +1012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3149721453186637416, guid: abc82512c50b38f4389ba1fa97d1d156, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.05
+      value: 65.16
       objectReference: {fileID: 0}
     - target: {fileID: 3149721453186637416, guid: abc82512c50b38f4389ba1fa97d1d156, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1747,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8744539860198052762, guid: dc4092cb022924c9eb1add02d4c4257f, type: 3}
       propertyPath: m_Name
-      value: Chapel+Library_1
+      value: Chapel+Library_Paint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
