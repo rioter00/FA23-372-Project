@@ -7,19 +7,17 @@ public class PauseMenu : MonoBehaviour{
     [SerializeField] GameObject player;
     [SerializeField] GameObject menu;
     [SerializeField] GameManager gm;
-    
-    private void Update() {
-        if(input.Escape == InputButtonState.ButtonDown) {
-            if (menu.activeInHierarchy) {
-                menu.SetActive(false);
-                player.SetActive(true);
-            }
-            else {
-                menu.SetActive(true);
-                player.SetActive(false);
-            }
-            gm.ToggleCursorLock();
-            //stop time
+
+    public void PauseGame() {
+        if (menu.activeInHierarchy) {
+            menu.SetActive(false);
+            player.SetActive(true);
         }
+        else {
+            menu.SetActive(true);
+            player.SetActive(false);
+        }
+        gm.ToggleCursorLock();
+        //stop time
     }
 }
