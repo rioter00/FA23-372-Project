@@ -8,47 +8,47 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 152.26163
+      value: -22.926788
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 124.7059
+      value: 64.848946
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - target: {fileID: 919132149155446097, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       propertyPath: m_Name
       value: Bookcase
       objectReference: {fileID: 0}
@@ -56,13 +56,13 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5526420791686740693}
-  m_SourcePrefab: {fileID: 100100000, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
 --- !u!1 &975102756549506390 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5063f31614568c8429e41ed78ac5f2cd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 46de0a3498229974ca419aea02e7eaa4, type: 3}
   m_PrefabInstance: {fileID: 92652664645355527}
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &5526420791686740693
@@ -84,5 +84,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.54652405, y: 2.0461264, z: 1}
-  m_Center: {x: 0.053016663, y: 1.0029492, z: 0}
+  m_Size: {x: 0.48749995, y: 1.9999999, z: 0.8812499}
+  m_Center: {x: 0.05625, y: 0.99999994, z: -0.0131249875}
