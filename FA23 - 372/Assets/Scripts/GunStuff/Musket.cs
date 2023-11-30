@@ -138,7 +138,14 @@ public class Musket : MonoBehaviour {
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var hit,
                 Mathf.Infinity, LayerMask))
         {
-            bulletSpawnPoint.LookAt(hit.transform);
+            if (hit.distance < 3f)
+            {
+                bulletSpawnPoint.rotation = mainCamera.transform.rotation;
+            }
+            else
+            {
+                bulletSpawnPoint.LookAt(hit.transform);
+            }
         }
         else
         {
