@@ -33,6 +33,8 @@ public class InputManager : MonoBehaviour
         //ideally this should be enabled/disabled depending on the currently active input map, which i supposed would be handled here.
 
         playerControls = new PlayerInputActions();
+        // QoL Update- Nick
+        gameObject.tag = "GameController";
     }
 
     private void OnEnable()
