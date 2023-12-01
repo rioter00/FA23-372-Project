@@ -36,6 +36,7 @@ public class Musket : MonoBehaviour {
         minPowder = 0.33f;
         sweetMin = 0.47f;
         sweetMax = 0.53f;
+        inputManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputManager>();
         //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
     }
 
@@ -133,11 +134,19 @@ public class Musket : MonoBehaviour {
 
     private void Shoot() { // Shoots the gun and changes state to NOTREADY so the player needs to reload to fire again
         gState = GunState.NOTREADY;
-        GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
+        //GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
+
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var hit,
                 Mathf.Infinity, LayerMask))
         {
-            bulletSpawnPoint.LookAt(hit.transform);
+            if (hit.distance < 3f)
+            {
+                bulletSpawnPoint.rotation = mainCamera.transform.rotation;
+            }
+            else
+            {
+                bulletSpawnPoint.LookAt(hit.transform);
+            }
         }
         else
         {
