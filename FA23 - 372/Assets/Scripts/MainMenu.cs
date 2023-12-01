@@ -30,5 +30,12 @@ public class MainMenu : MonoBehaviour
     public void LoadScene(string sceneBuildString)
     {
         SceneManager.LoadScene(sceneBuildString);
+ 
     }
+    public void QuitGame()
+    {
+        Debug.Log("quit button selected");
+        Application.Quit();
+    }
+
 }
