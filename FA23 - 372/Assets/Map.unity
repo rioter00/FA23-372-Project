@@ -504,7 +504,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c75e179048e7145f7a52709b83c8006e, type: 3}
---- !u!1001 &7600111955015898572
+--- !u!1001 &8325489090027627021
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -512,55 +512,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6239842371840475377, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
-      propertyPath: m_Name
-      value: Cafeteria_FixedF%paint
-      objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 67.95
       objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.0119988
       objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -40.2
+      value: 30.7
       objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+    - target: {fileID: 3200977771161501062, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299842526431690577, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
+      propertyPath: m_Name
+      value: Cafeteria_FixedF%paint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 0ab6e6ac59ce9e44aaea35d5af41624b, type: 3}
 --- !u!1001 &8367777118819659951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -626,6 +626,6 @@ SceneRoots:
   - {fileID: 495246139}
   - {fileID: 636370134}
   - {fileID: 1196009905}
-  - {fileID: 7600111955015898572}
   - {fileID: 1460591336164361022}
   - {fileID: 8367777118819659951}
+  - {fileID: 8325489090027627021}
