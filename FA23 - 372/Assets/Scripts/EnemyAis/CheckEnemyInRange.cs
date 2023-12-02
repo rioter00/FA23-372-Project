@@ -31,16 +31,16 @@ public class CheckEnemyInRange : EnemyNode
             if (initialColliders.Length > 0)
             {
                 Vector3 playerPos = (initialColliders[0].transform.position).normalized;
-                Vector3 direction = (Enemytransform.position - playerPos).normalized;
+                Vector3 direction = (playerPos-Enemytransform.position).normalized;
                 angle = Vector3.Angle(direction, Enemytransform.forward);
                 //Debug.Log(angle);
             }
 
             //if (initialColliders.Length > 0)
-            if(initialColliders.Length > 0 && angle < 100)
+            if(initialColliders.Length > 0 && angle < 100)// 
             {
                 
-                //AIOverseer.overseer.ReportFightingAgentAddition(gameObject);
+                AIOverseer.overseer.ReportFightingAgentAddition(Enemytransform.gameObject);
 
                 //uses parent.parent because the parent is 2 nodes about this and we want to set this in the dictionary of the node so the whole tree can access it
                 parent.parent.SetData("target", initialColliders[0].transform);

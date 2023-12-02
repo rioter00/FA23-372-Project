@@ -80,6 +80,7 @@ public class AIOverseer : MonoBehaviour
         foreach(GameObject g in activeAgents)
         {
             g.GetComponent<NavMeshAgent>().destination = hintLocation;
+            g.GetComponent<VisitedHint>().visitedHint = false;
         }
     }
 
