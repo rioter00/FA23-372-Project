@@ -561,7 +561,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e12e4302fc4944260af4466a5a394978, type: 3}
---- !u!1001 &6006609553062118992
+--- !u!1001 &7600111955015898572
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -569,55 +569,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 17.03267
+    - target: {fileID: 6239842371840475377, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+      propertyPath: m_Name
+      value: Cafeteria_FixedF%paint
       objectReference: {fileID: 0}
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.90987
+      value: 2.52
       objectReference: {fileID: 0}
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 430857566686740054, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+    - target: {fileID: 6760904966917577291, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1058739537755677932, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
-      propertyPath: m_Name
-      value: Cafeteria_Fixed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e8b12c3d0c12343e09089b5608209b7f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 3b1e5bc45fe3448d597222ea96798134, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -628,4 +628,4 @@ SceneRoots:
   - {fileID: 1196009905}
   - {fileID: 2940148920548053204}
   - {fileID: 562215406}
-  - {fileID: 6006609553062118992}
+  - {fileID: 7600111955015898572}
