@@ -31,7 +31,7 @@ public class TaskAttack : EnemyNode
 
         attackCounter += Time.deltaTime;
         if (attackCounter >= attackTime) {
-            Debug.Log("ATTACKING");
+            //Debug.Log("ATTACKING");
             animator.SetInteger("state", 2);
 
             //bool enemyIsDead = playerHealth.TakeDamage(damage);

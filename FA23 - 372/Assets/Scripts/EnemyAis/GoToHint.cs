@@ -48,7 +48,7 @@ public class GoToHint : EnemyNode
             }
         }
         //Debug.Log(enemy.GetComponent<VisitedHint>().visitedHint);
-        state = NodeState.SUCCESS;
+        state = NodeState.RUNNING;
         return state;
     }
 }
