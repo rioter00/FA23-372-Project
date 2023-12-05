@@ -433,7 +433,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -761,7 +761,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 0
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 4148858164807460267}
 --- !u!114 &5908910506359939496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,7 +790,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 4148858164807460267}
   Aimpoint: {fileID: 4249305401539940244}
 --- !u!1 &6431314236064237772
 GameObject:

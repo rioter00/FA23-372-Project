@@ -449,12 +449,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musket: {fileID: 0}
   reloadCanvas: {fileID: 8795644442617241645}
-  invisibleOnEnable: 0
-  fadeTimeInMS: 300
+  invisibleOnEnable: 1
+  fadeTimeInMS: 30
   powderSlider: {fileID: 2709068831907053383}
-  powderMarker: {fileID: 3548715977444252250}
-  sliderHandleImage: {fileID: 0}
-  sweetspotMarkersGroup: {fileID: 0}
   sweetspotMinSlider: {fileID: 3274415092820992767}
   sweetspotMaxSlider: {fileID: 1320888332762476126}
   powderMinSlider: {fileID: 5349519749916937483}
