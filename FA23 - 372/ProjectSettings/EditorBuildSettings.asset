@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Models/Logan-Assets/Scenes/Credits.unity
     guid: 3c628f4f59eecb54cb26fdc76ad3ffe0
+  - enabled: 1
+    path: Assets/Map.unity
+    guid: dfc3f4d8639e94cef903deeddcafb5c7
   m_configObjects: {}
