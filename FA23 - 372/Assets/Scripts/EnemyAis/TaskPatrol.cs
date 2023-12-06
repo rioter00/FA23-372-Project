@@ -16,20 +16,37 @@ public class TaskPatrol : EnemyNode
     private float waitTime = 1f;
     private float waitCounter = 0f;
     private bool waiting = false;
+    private float shortestDistance = 10000f;
+    private int shortestWaypointIndex;
+    private bool patroling = false;
 
     
-    // Start is called before the first frame update
     public TaskPatrol(Transform transform, List<Transform> waypoints, NavMeshAgent Agent, Animator animator) {
         this.waypoints = waypoints;
         this.transform = transform;
-        //animator = transform.GetComponent<Animator>();
         this.animator = animator;
         this.Agent = Agent;
-        //for (int i = 0; i < waypoints.Count; i++) { Debug.Log(i); Debug.Log(waypoints[i].position); }
     }
 
     public override NodeState Evaluate()
     {
+        if (!patroling) {
+            int i = 0;
+            foreach (Transform t in waypoints)
+            {
+                float distance = Vector3.Distance(t.position, transform.position);
+                if (distance < shortestDistance)
+                {
+                    shortestDistance = distance;
+                    shortestWaypointIndex = i;
+                }
+                i++;
+
+            }
+            currentWaypointIndex = shortestWaypointIndex;
+        }
+        patroling = true;
+        
         
         //check if enemy is waiting at a point
         if (waiting)
@@ -45,8 +62,10 @@ public class TaskPatrol : EnemyNode
             }
         }
         else {
+            
             Transform wp = waypoints[currentWaypointIndex];
-            //Debug.Log(wp);
+
+            Debug.Log(wp);
             //if they are at the point then switch to waiting to be true
             if (Vector3.Distance(transform.position, wp.position) < Agent.stoppingDistance)
             {
@@ -55,7 +74,7 @@ public class TaskPatrol : EnemyNode
                 waiting = true;
                 //Debug.Log("hai :3 2");
                 currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
-                //Debug.Log("hai :3 3");
+                //Debug.Log(currentWaypointIndex);
                 //where you tell the animator that you aren't walking
                 animator.SetInteger("state", 0);
             }
@@ -63,7 +82,6 @@ public class TaskPatrol : EnemyNode
                 //if they aren't waiting and aren't near a point then move them towards the point
                 animator.SetInteger("state", 1);
                 Agent.destination = wp.position;
-                //transform.LookAt(wp.position);
             }
         }
         state = NodeState.RUNNING;

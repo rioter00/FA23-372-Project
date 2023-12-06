@@ -20,6 +20,7 @@ public class TaskPursue : EnemyNode
 
     public override NodeState Evaluate()
     {
+        Debug.Log("Pursuing");
         animator.SetInteger("state", 1);
         Transform target = (Transform)GetData("target");
         Agent.destination= target.position;
