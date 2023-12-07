@@ -1,0 +1,22 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl skin(Clone)
+Kd 1 0.667 0.506
+
+newmtl woodDark(Clone)
+Kd 0.698 0.316 0.194
+
+newmtl wood(Clone)
+Kd 0.746 0.344 0.215
+
+newmtl skinDark(Clone)
+Kd 0.887 0.517 0.339
+
+newmtl _defaultMat(Clone)
+Kd 0.475 0.492 0.55
+map_Kd Textures/_defaultMat(Clone).png
+
+newmtl metal(Clone)
+Kd 1 1 1
+map_Kd Textures/metal(Clone).png
+
