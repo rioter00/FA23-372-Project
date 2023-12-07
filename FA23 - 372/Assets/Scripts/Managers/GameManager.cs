@@ -48,10 +48,10 @@ public class GameManager : MonoBehaviour
         if (silenceManagers) return;
           switch (state) {
               case GunState.READYTOFIRE:
-                  AIOverseer.overseer.SignalDodgeToFightingAgents();
+                  //AIOverseer.overseer.SignalDodgeToFightingAgents();
                   break;
               default:
-                  AIOverseer.overseer.SignalRushToFightingAgents();
+                  //AIOverseer.overseer.SignalRushToFightingAgents();
                   break;
           }
      }

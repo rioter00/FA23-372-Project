@@ -90,7 +90,7 @@ public class AIOverseer : MonoBehaviour
         SpawnManager.enabledSpawnManager.SpawnWave();
     }
 
-    public void SignalDodgeToFightingAgents()
+   /*+ public void SignalDodgeToFightingAgents()
     {
         if (GameManager.enabledGameManager.silenceManagers) return;
         foreach (GameObject g in fightingAgents) if(Random.Range(alertMin, alertMax) > alertThreshold) { g.GetComponent<IAgent>().SetBehaviorState(0); }   //placeholder parameter    
@@ -100,6 +100,6 @@ public class AIOverseer : MonoBehaviour
     {
         if (GameManager.enabledGameManager.silenceManagers) return;
         foreach (GameObject g in fightingAgents) if(Random.Range(alertMin, alertMax) > alertThreshold) { g.GetComponent<IAgent>().SetBehaviorState(1); }   //placeholder parameter
-    }
+    }*/
 
 }

@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     public int HP { get; set; }
     public int MaxHP { get; set; }
     public LivingState LState { get; set; }
+    Animator animator;
 
     public void TakeDamage(int damage){
         HP -= damage;
@@ -16,15 +17,18 @@ public class EnemyHealth : MonoBehaviour, IHealth
     }
     public void Death(){
         LState = LivingState.DEAD;
-        Destroy(gameObject); //for testing
-        //Do things with enemy death
+        StartCoroutine(DeathWait());
     }
 
     private void Start(){
         MaxHP = 1;
         HP = MaxHP;
         LState = LivingState.ALIVE;
+        animator = gameObject.GetComponent<Animator>();
     }
 
-
+    IEnumerator DeathWait() {
+        yield return new WaitForSeconds(.5f);
+        Destroy(gameObject);
+    }
 }
