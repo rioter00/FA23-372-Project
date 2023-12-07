@@ -13,7 +13,7 @@ public class MeleeEnemyBT : BehaviorTree.EnemyTree
         EnemyNode root = new Selector(new List<EnemyNode> {
             new Sequence(new List<EnemyNode>{ 
                 new CheckHealth(gameObject),
-                new TaskDie(gameObject, gameObject.GetComponent<Animator>()),
+                new TaskDie(gameObject, gameObject.GetComponent<Animator>(), gameObject.GetComponent<NavMeshAgent>()),
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckInAttackRange(transform, Agent.stoppingDistance, gameObject.GetComponent<Animator>()),
