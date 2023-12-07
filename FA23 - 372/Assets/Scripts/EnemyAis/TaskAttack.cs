@@ -25,7 +25,7 @@ public class TaskAttack : EnemyNode
         Transform target = (Transform)GetData("target");
         if (target != lastTarget) { 
             //playerHealth = target.GetComponent<PlayerHealth()>;
-            playerManager = target.GetComponent<PlayerManager>();
+            //playerManager = target.GetComponent<PlayerManager>();
             lastTarget = target;
         }
 
@@ -35,18 +35,18 @@ public class TaskAttack : EnemyNode
             animator.SetInteger("state", 2);
 
             //bool enemyIsDead = playerHealth.TakeDamage(damage);
-            bool enemyIsDead = playerManager.TakeHit(damage);
+            //bool enemyIsDead = playerManager.TakeHit(damage);
 
-            if (enemyIsDead)
+            /*if (enemyIsDead)
             {
                 ClearData("target");
                 //switch from atacking to walking in the animator
                 animator.SetInteger("state", 1);
             }
-            else
-            {
+            else*/
+            //{
                 attackCounter = 0f;
-            }
+           // }
         }
         
         state = NodeState.RUNNING;
