@@ -19,6 +19,7 @@ public class TaskDie : EnemyNode
     {
         Debug.Log("Die");
         //do animation things
+        AIOverseer.overseer.ReportAgentSubtraction(enemy);
         animator.SetInteger("state", 3);
         agent.SetDestination(enemy.transform.position);
         //i think the object has to be destroyed in the enemy health class
