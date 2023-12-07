@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
         {
             case 1:
             case 2:
+            case 4:
                 Cursor.lockState = CursorLockMode.Locked;
                 break;
             default:
