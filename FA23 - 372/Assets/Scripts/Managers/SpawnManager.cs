@@ -27,9 +27,15 @@ public class SpawnManager : MonoBehaviour
         if (enabledSpawnManager == null) enabledSpawnManager = this;
         else Destroy(this);
 
+        for(int i = 0; i < 3; i++)
+        {
+            quotaMatrix.Add(new List<int>());
+        }
+
 
         for (int i = 0; i < knightWaveQuotas.Length; i++)
         {
+            
             if (knightWaveQuotas[i] < 0) quotaMatrix[0].Add(0);
             else quotaMatrix[0].Add(knightWaveQuotas[i]);
         }
