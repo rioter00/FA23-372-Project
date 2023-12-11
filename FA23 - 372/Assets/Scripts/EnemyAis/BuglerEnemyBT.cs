@@ -21,16 +21,6 @@ public class BuglerEnemyBT : BehaviorTree.EnemyTree
             }),
             new Sequence(new List<EnemyNode>{
                 new CheckEnemyInRange(transform,agroRange),
-               /* new Sequence(new List<Node>{ 
-                    new Flip(new List<Node>{
-                        CheckStunned();
-                }),
-                  new Selector(new List<Node>{
-                    TaskRushPursue(),
-                    TaskDodgePursue(),
-                    TaskPursue(),
-                }),
-                }),*/
                 new TaskPursue(transform,Agent, gameObject.GetComponent < Animator >()),
             }),
             new Sequence(new List<EnemyNode>{

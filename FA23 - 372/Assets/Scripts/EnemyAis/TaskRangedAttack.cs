@@ -15,10 +15,12 @@ public class TaskRangedAttack : EnemyNode
     private GameObject arrowPrefab;
     private float arrowSpeed;
     private Animator animator;
+    private Transform enemyTransform;
 
 
     public TaskRangedAttack(Transform transform, float attackTime, int damage, Transform asp, GameObject arrowPrefab, float arrowSpeed, Animator animator)
     {
+        enemyTransform = transform;
         this.attackTime = attackTime;
         this.damage = damage;
         arrowShootPoint = asp;
@@ -40,6 +42,7 @@ public class TaskRangedAttack : EnemyNode
         attackCounter += Time.deltaTime;
         if (attackCounter >= attackTime)
         {
+            enemyTransform.LookAt(target);
             animator.SetInteger("state", 2);
 
             //bool enemyIsDead = playerHealth.TakeDamage(damage);
@@ -55,6 +58,9 @@ public class TaskRangedAttack : EnemyNode
             //{
             attackCounter = 0f;
             //}
+        }
+        else { 
+            animator.SetInteger("state", 0);
         }
 
         state = NodeState.RUNNING;

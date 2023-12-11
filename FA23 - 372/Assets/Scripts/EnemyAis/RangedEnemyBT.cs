@@ -22,7 +22,7 @@ public class RangedEnemyBT : BehaviorTree.EnemyTree
                 new TaskDie(gameObject, gameObject.GetComponent<Animator>(), gameObject.GetComponent<NavMeshAgent>()),
             }),
             new Sequence(new List<EnemyNode>{
-                new CheckInAttackRange(transform, Agent.stoppingDistance, gameObject.GetComponent<Animator>()),
+                new CheckInAttackRange(transform, Agent.stoppingDistance-0.5f, gameObject.GetComponent<Animator>()),
                 new TaskRangedAttack(transform, attackTime,attackDamage, arrowShootPoint, arrowPrefab, arrowSpeed, gameObject.GetComponent<Animator>()),
             }),
             new Sequence(new List<EnemyNode>{
