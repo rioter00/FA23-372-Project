@@ -11,8 +11,10 @@ public class TaskAttack : EnemyNode
     private float attackCounter = 0f;
     private int damage;
     private Animator animator;
+    private Transform enemyTransform;
 
     public TaskAttack(Transform transform, float attackTime, int damage, Animator animator) { 
+        enemyTransform = transform;
         this.attackTime = attackTime;
         this.damage = damage;
         this.animator = animator;
@@ -30,8 +32,10 @@ public class TaskAttack : EnemyNode
         }
 
         attackCounter += Time.deltaTime;
-        if (attackCounter >= attackTime) {
+        if (attackCounter >= attackTime)
+        {
             //Debug.Log("ATTACKING");
+            enemyTransform.LookAt(target);
             animator.SetInteger("state", 2);
 
             //bool enemyIsDead = playerHealth.TakeDamage(damage);
@@ -45,8 +49,11 @@ public class TaskAttack : EnemyNode
             }
             else*/
             //{
-                attackCounter = 0f;
-           // }
+            attackCounter = 0f;
+            // }
+        }
+        else { 
+            animator.SetInteger("state", 0);
         }
         
         state = NodeState.RUNNING;

@@ -38,40 +38,17 @@ public class TaskBuglerAttack : EnemyNode
                     else
                     {
                         Ally.GetComponent<Buffed>().isBuffed = true;
-                        Ally.GetComponent<EnemyTree>().attackTime -= 0.5f;
+                        Ally.GetComponent<EnemyTree>().attackTime -= 1f;
                         Ally.GetComponent<NavMeshAgent>().speed += 5;
                     }
                 }
             }
             attackCounter = 0f;
         }
-
-        /*Transform target = (Transform)GetData("target");
-        if (target != lastTarget)
+        else
         {
-            playerManager = target.GetComponent<PlayerManager>();
-            lastTarget = target;
+            animator.SetInteger("state", 0);
         }
-
-        attackCounter += Time.deltaTime;
-        if (attackCounter >= attackTime)
-        {
-            Debug.Log("ATTACKING");
-            
-
-            bool enemyIsDead = playerManager.TakeHit(damage);
-
-            if (enemyIsDead)
-            {
-                ClearData("target");
-                //switch from atacking to walking in the animator
-                animator.SetInteger("state", 1);
-            }
-            else
-            {
-                attackCounter = 0f;
-            }
-        }*/
 
         state = NodeState.RUNNING;
         return state;
