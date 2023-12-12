@@ -430,7 +430,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303381391}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -707,7 +707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.3922577, y: -2.1315765}
+  m_AnchoredPosition: {x: 2.45, y: -2.1315765}
   m_SizeDelta: {x: 476.51, y: 424.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782708759
@@ -749,10 +749,11 @@ MonoBehaviour:
 
     Prop/Environment Decoration & Design
 
-    Prop modeler, Painting
+    Prop & Building
     Artist
 
-    Prop & Building Artist
+
+    Prop Artist, Painting Artist
 
 
     Programmer(Musket & Health)
@@ -767,7 +768,16 @@ MonoBehaviour:
     Behavior)
 
 
-    Level Design, Prop & Building Artist'
+    Level Design, Prop & Building Artist
+
+    Prop Artist, UI Designer
+
+
+    Prop
+    Artist
+
+
+    Prop Artist, Poster Design'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
   m_sharedMaterial: {fileID: 529898400736359102, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
@@ -776,8 +786,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284177243
-  m_fontColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
+    rgba: 4281019179
+  m_fontColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -800,7 +810,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1100,7 +1110,17 @@ MonoBehaviour:
     Svendsen:
 
 
-    Jackson Gray:'
+    Jackson Gray:
+
+
+    Lauren Stein:
+
+
+    Ryan Glavach:
+
+
+    Ryan
+    Craig:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
   m_sharedMaterial: {fileID: 529898400736359102, guid: aa981d5ad9aa24a35a5e080b9d9964a5, type: 2}
