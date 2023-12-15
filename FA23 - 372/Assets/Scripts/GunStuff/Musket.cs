@@ -27,6 +27,7 @@ public class Musket : MonoBehaviour {
     //
     public LayerMask LayerMask;
     public Camera mainCamera;
+    [SerializeField] Animator anim;
     
     private void Start() {
         mainCamera = Camera.main;
@@ -72,6 +73,11 @@ public class Musket : MonoBehaviour {
                 switch (rState) {
                     case ReloadingState.RELOADINGSTAGE1: //Putting powder in the gun (between 1 and 2 seconds of holding f)
                         if (inputManager.Gun_Powder == InputButtonState.ButtonHeld) { //For adding powder to the gun
+
+                            //animation trigger
+                            anim.SetBool("Powder", true);
+                            anim.SetBool("Loaded", false);
+
                             if (pm.currentState == PlayerMovement.MovementState.still) { //if the player is still you can fill powder super fast
                                 if (cam.rotation.x != lastCamRotation) { //checks for camera movement that also inhibits pouring
                                     Powder += Time.deltaTime / (stillPow * camMovePow);
@@ -90,6 +96,9 @@ public class Musket : MonoBehaviour {
                             }
                             else { //dashing
                                 //powder doesn't fill at all
+
+                                //animation trigger
+                                anim.SetBool("Powder", false);
                             }
                         }
                         else if (inputManager.Gun_Powder == InputButtonState.ButtonUp) { //When shift is released check to see if there's enough powder in the gun
@@ -110,6 +119,10 @@ public class Musket : MonoBehaviour {
                     case ReloadingState.RELOADINGSTAGE2: //Putting bullet in gun (one press of e)
                         if (inputManager.Gun_Bullet == InputButtonState.ButtonDown) {
                             bullets += bulletsToAdd; //Adds the bullet to the gun
+
+                            //animation trigger
+                            anim.SetBool("Ball", true);
+
                             rState = ReloadingState.RELOADINGSTAGE3;
                         }
                         break;
@@ -117,12 +130,34 @@ public class Musket : MonoBehaviour {
                         if(tamps < 3) {
                             if (inputManager.Gun_Tamp == InputButtonState.ButtonDown) {
                                 tamps++;
+
+                                //animation trigger
+                                if (tamps == 1)
+                                {
+                                    anim.SetBool("Tamp_1", true);
+                                }
+                                else if(tamps == 2)
+                                {
+                                    anim.SetBool("Tamp_2", true);
+                                }
+                                else if(tamps == 3)
+                                {
+                                    anim.SetBool("Tamp_3", true);
+                                }
                             }
                         }
                         else {
                             gState = GunState.READYTOFIRE;
                             tamps = 0;
                             Powder = 0f;
+
+                            //animation trigger
+                            anim.SetBool("Powder", false);
+                            anim.SetBool("Ball", false);
+                            anim.SetBool("Tamp_1", false);
+                            anim.SetBool("Tamp_2", false);
+                            anim.SetBool("Tamp_3", false);
+                            anim.SetBool("Loaded", true);
                             GameManager.enabledGameManager.OnPlayerWeaponStateChange(gState);
                         }
                         break;

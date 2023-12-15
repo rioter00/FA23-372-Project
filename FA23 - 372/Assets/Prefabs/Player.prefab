@@ -785,6 +785,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   mainCamera: {fileID: 4148858164807460267}
+  anim: {fileID: 0}
 --- !u!114 &5908910506359939496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f2acaafdb34444eaa5b5d14cfb8bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8493909997149187623, guid: 6f82851f5e9ca8241ac6120657c616b0, type: 3}
+  bulletPrefab: {fileID: 8493909997149187623, guid: 1cfe6c211be9ce1469fe2f67949067a4, type: 3}
 --- !u!114 &6187444072905886579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,7 +1165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f40f40035bbf244287d804c0530d914, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f40f40035bbf244287d804c0530d914, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1180,7 +1181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f40f40035bbf244287d804c0530d914, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f40f40035bbf244287d804c0530d914, type: 3}
       propertyPath: m_LocalRotation.y
