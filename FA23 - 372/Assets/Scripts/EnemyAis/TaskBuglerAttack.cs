@@ -38,7 +38,7 @@ public class TaskBuglerAttack : EnemyNode
                     else
                     {
                         Ally.GetComponent<Buffed>().isBuffed = true;
-                        Ally.GetComponent<EnemyTree>().attackTime -= 1f;
+                        Ally.GetComponent<EnemyTree>().attackTime *= 0.8f;
                         Ally.GetComponent<NavMeshAgent>().speed += 5;
                     }
                 }
