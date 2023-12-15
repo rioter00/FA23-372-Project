@@ -19,9 +19,15 @@ public class CheckAllyInAttackRange : EnemyNode
 
     public override NodeState Evaluate()
     {
-        //object t = GetData("target");
-        if (AIOverseer.overseer.activeAgents.Count == 0) {
+        object t = GetData("target");
+        if (t == null)
+        {
             state = NodeState.FAILURE;
+            return state;
+        }
+        Transform target = (Transform)t;
+        if (AIOverseer.overseer.activeAgents.Count != 0 && Vector3.Distance(transform.position, target.position) <= attackRange) {
+            state = NodeState.SUCCESS;
             return state;
         }
 
@@ -36,7 +42,7 @@ public class CheckAllyInAttackRange : EnemyNode
             return state;
         }*/
 
-        state = NodeState.SUCCESS;
+        state = NodeState.FAILURE;
         return state;
     }
 }
