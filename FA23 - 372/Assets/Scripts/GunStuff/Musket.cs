@@ -27,7 +27,7 @@ public class Musket : MonoBehaviour {
     //
     public LayerMask LayerMask;
     public Camera mainCamera;
-    public Animator anim;
+    [SerializeField] Animator anim;
     
     private void Start() {
         mainCamera = Camera.main;
