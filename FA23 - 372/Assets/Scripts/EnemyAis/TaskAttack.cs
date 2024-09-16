@@ -52,9 +52,6 @@ public class TaskAttack : EnemyNode
             attackCounter = 0f;
             // }
         }
-        else { 
-            animator.SetInteger("state", 0);
-        }
         
         state = NodeState.RUNNING;
         return state;
